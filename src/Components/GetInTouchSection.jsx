@@ -13,7 +13,10 @@ const GetInTouchSection = () => {
   const chatBubblesRef = useRef([]);
 
   // Function to scroll to contact section
-  const scrollToContact = () => {
+  const scrollToContact = (e) => {
+    e.preventDefault(); // ✅ Prevent default behavior
+    e.stopPropagation(); // ✅ Stop event bubbling
+    
     const contactSection = document.getElementById('contact-us');
     if (contactSection) {
       contactSection.scrollIntoView({ 
@@ -40,11 +43,16 @@ const GetInTouchSection = () => {
         anticipatePin: 1,
         invalidateOnRefresh: true,
         fastScrollEnd: true,
-        preventOverlaps: true
+        preventOverlaps: true,
+        // ✅ Add this to prevent scroll interference
+        onLeave: () => {
+          // Ensure ScrollTrigger doesn't interfere with navigation
+          ScrollTrigger.refresh();
+        }
       }
     });
 
-    // Horizontal text scroll - NO fade-in, just horizontal movement
+    // Horizontal text scroll
     masterTimeline.to(textWrapperRef.current, {
       x: () => -(textWidth - windowWidth),
       ease: "none",
@@ -142,7 +150,8 @@ const GetInTouchSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen bg-[#ffffff] overflow-hidden pt-24" id="contact-section"
+      className="relative min-h-screen bg-[#ffffff] overflow-hidden pt-24"
+      id="get-in-touch" // ✅ Changed from "contact-section" to match common patterns
     >
       {/* Container for both text and image sections */}
       <div className="relative h-screen flex flex-col justify-between">
@@ -181,16 +190,16 @@ const GetInTouchSection = () => {
         >
           <div className="relative flex items-center justify-center w-full max-w-[90rem]">
 
-            {/* Center Image - Larger and at z-index 1 */}
+            {/* Center Image */}
             <img
               ref={imageRef}
               src={Sir}
               alt="Nishant Shakher"
-              className="relative w-[420px] h-[480px] sm:w-[500px] sm:h-[560px] md:w-[600px] md:h-[650px] lg:w-[700px] lg:h-[750px] xl:w-[800px] xl:h-[850px] rounded-3xl object-cover object-center "
+              className="relative w-[420px] h-[480px] sm:w-[500px] sm:h-[560px] md:w-[600px] md:h-[650px] lg:w-[700px] lg:h-[750px] xl:w-[800px] xl:h-[850px] rounded-3xl object-cover object-center"
               style={{ willChange: 'transform', transform: 'translateZ(0)', zIndex: 1 }}
             />
 
-            {/* Left Side - Text Bubbles - Higher z-index to appear above image */}
+            {/* Left Side - Text Bubbles */}
             <div className="absolute left-4 md:left-8 lg:left-12 xl:left-20 top-[15%] space-y-4 max-w-[240px] md:max-w-[280px] lg:max-w-sm hidden md:block z-10">
               {/* Nishant Badge */}
               <div
@@ -221,14 +230,15 @@ const GetInTouchSection = () => {
                 Let's create something amazing together!
               </div>
 
-              {/* Send Message Button - Now with onClick handler */}
+              {/* Send Message Button */}
               <div
                 ref={el => chatBubblesRef.current[3] = el}
                 style={{ willChange: 'transform' }}
               >
                 <button 
                   onClick={scrollToContact}
-                  className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-base shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                  onMouseDown={(e) => e.stopPropagation()} // ✅ Prevent interference
+                  className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-base shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer relative z-50"
                 >
                   SEND MESSAGE
                 </button>
@@ -245,7 +255,7 @@ const GetInTouchSection = () => {
               </div>
             </div>
 
-            {/* Right Side - Text Bubbles - Higher z-index and positioned at top */}
+            {/* Right Side - Text Bubbles */}
             <div className="absolute right-4 md:right-8 lg:right-12 xl:right-20 top-[15%] space-y-4 max-w-[240px] md:max-w-[280px] lg:max-w-md hidden md:block z-10">
               {/* Developer Badge */}
               <div

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -170,7 +171,6 @@ class ProjectCard {
     img.onload = () => {
       texture.image = img;
       this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
-      console.log(`Image loaded: ${this.text}`, img.width, img.height);
     };
     img.onerror = () => {
       console.error(`Failed to load image: ${this.image}`);
@@ -239,11 +239,6 @@ class ProjectCard {
     this.width = this.plane.scale.x + this.padding;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
-    
-    console.log(`Card ${this.index} resized:`, {
-      scale: this.plane.scale,
-      position: this.x
-    });
   }
 }
 
@@ -252,6 +247,7 @@ const ProjectSection = () => {
   const canvasContainerRef = useRef(null);
   const [activeTab, setActiveTab] = useState('product');
   const appRef = useRef(null);
+  const navigate = useNavigate();
 
   const projectData = {
     product: [
@@ -332,8 +328,27 @@ const ProjectSection = () => {
     ]
   };
 
+  // ✅ FIXED: Enhanced navigation handler
+  const handleExploreClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Clear any hash from URL
+    if (window.location.hash) {
+      window.history.pushState("", document.title, window.location.pathname);
+    }
+    
+    console.log('Navigating to:', `/projects/explore?type=${activeTab}`);
+    
+    // Navigate to explore page
+    navigate(`/projects/explore?type=${activeTab}`);
+  };
+
   useEffect(() => {
     if (!canvasContainerRef.current) return;
+
+    // Clear existing canvas before creating new instance
+    canvasContainerRef.current.innerHTML = '';
 
     class WebGLCarousel {
       constructor(container, items) {
@@ -353,7 +368,6 @@ const ProjectSection = () => {
         this.createCards();
         this.update();
         this.addEventListeners();
-        console.log('WebGL Carousel initialized');
       }
 
       createRenderer() {
@@ -370,14 +384,12 @@ const ProjectSection = () => {
         this.gl.canvas.style.display = 'block';
         
         this.container.appendChild(this.gl.canvas);
-        console.log('Renderer created', this.gl.canvas.width, this.gl.canvas.height);
       }
 
       createCamera() {
         this.camera = new Camera(this.gl);
         this.camera.fov = 45;
         this.camera.position.z = 10;
-        console.log('Camera created at z:', this.camera.position.z);
       }
 
       createScene() {
@@ -406,7 +418,6 @@ const ProjectSection = () => {
             viewport: this.viewport
           });
         });
-        console.log(`Created ${this.cards.length} cards`);
       }
 
       onTouchDown(e) {
@@ -454,8 +465,6 @@ const ProjectSection = () => {
         const width = height * this.camera.aspect;
         this.viewport = { width, height };
         
-        console.log('Viewport:', this.viewport);
-        
         if (this.cards) {
           this.cards.forEach(card => card.onResize({ screen: this.screen, viewport: this.viewport }));
         }
@@ -492,16 +501,57 @@ const ProjectSection = () => {
       }
 
       destroy() {
-        cancelAnimationFrame(this.raf);
-        window.removeEventListener('resize', this.boundOnResize);
-        this.container.removeEventListener('wheel', this.boundOnWheel);
-        this.container.removeEventListener('mousedown', this.boundOnTouchDown);
-        this.container.removeEventListener('mousemove', this.boundOnTouchMove);
-        this.container.removeEventListener('mouseup', this.boundOnTouchUp);
-        if (this.renderer && this.renderer.gl && this.renderer.gl.canvas.parentNode) {
-          this.renderer.gl.canvas.parentNode.removeChild(this.renderer.gl.canvas);
+        // Cancel animation frame first
+        if (this.raf) {
+          cancelAnimationFrame(this.raf);
+          this.raf = null;
         }
+
+        // Remove event listeners
+        if (this.boundOnResize) {
+          window.removeEventListener('resize', this.boundOnResize);
+        }
+        if (this.container) {
+          this.container.removeEventListener('wheel', this.boundOnWheel);
+          this.container.removeEventListener('mousedown', this.boundOnTouchDown);
+          this.container.removeEventListener('mousemove', this.boundOnTouchMove);
+          this.container.removeEventListener('mouseup', this.boundOnTouchUp);
+          this.container.removeEventListener('touchstart', this.boundOnTouchDown);
+          this.container.removeEventListener('touchmove', this.boundOnTouchMove);
+          this.container.removeEventListener('touchend', this.boundOnTouchUp);
+        }
+
+        // Kill ScrollTrigger instances
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+        // Dispose WebGL resources properly
+        if (this.cards) {
+          this.cards.forEach(card => {
+            if (card.program && card.program.uniforms && card.program.uniforms.tMap) {
+              const texture = card.program.uniforms.tMap.value;
+              if (texture && texture.image) {
+                texture.image = null;
+              }
+            }
+          });
+          this.cards = null;
+        }
+
+        // Lose WebGL context to free GPU resources
+        if (this.gl) {
+          const loseContextExt = this.gl.getExtension('WEBGL_lose_context');
+          if (loseContextExt) {
+            loseContextExt.loseContext();
+          }
+        }
+
+        // Clear all references - Let React handle DOM cleanup
+        this.planeGeometry = null;
+        this.scene = null;
+        this.camera = null;
+        this.renderer = null;
+        this.gl = null;
+        this.container = null;
       }
     }
 
@@ -510,6 +560,7 @@ const ProjectSection = () => {
     return () => {
       if (appRef.current) {
         appRef.current.destroy();
+        appRef.current = null;
       }
     };
   }, [activeTab]);
@@ -552,19 +603,15 @@ const ProjectSection = () => {
           className="w-full h-[600px] cursor-grab active:cursor-grabbing rounded-2xl bg-gray-100 border-2 border-gray-300 shadow-xl overflow-hidden"
         />
 
-        {/* Updated: Explore projects button, respecting current tab */}
+        {/* ✅ FIXED: Explore Projects Button with proper event handling */}
         <div className="flex justify-center mt-8">
           <button
-            onClick={() =>
-              window.open(
-                `/projects/explore?type=${activeTab}`,
-                '_blank',
-                'noopener,noreferrer'
-              )
-            }
-            className="px-10 py-3 rounded-full bg-black text-white text-sm md:text-base font-semibold tracking-[0.2em] uppercase hover:bg-gray-900 transition-colors"
+            onClick={handleExploreClick}
+            onMouseDown={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
+            className="relative z-50 px-10 py-3 rounded-full bg-black text-white text-sm md:text-base font-semibold tracking-[0.2em] uppercase hover:bg-gray-900 transition-colors"
           >
-            Explore projects
+            Explore Projects
           </button>
         </div>
 

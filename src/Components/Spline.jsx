@@ -24,9 +24,10 @@ const Hero = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   const teamMembers = [
-    { id: 1, image: "/team/member1.jpg", name: "Team Member 1" },
-    { id: 2, image: "/team/member2.jpg", name: "Team Member 2" },
-    { id: 3, image: "/team/member3.jpg", name: "Team Member 3" }
+    { id: 1, image: "https://media.licdn.com/dms/image/v2/D5603AQEk-OM0mDJnkQ/profile-displayphoto-shrink_800_800/B56ZZojkV5GQAg-/0/1745510877242?e=1765411200&v=beta&t=nuHQ2kXeFZfOQdcPCljPptIUW1fR7zhF8a95MS0uiz4", name: "Team Member 1" },
+    { id: 2, image: "https://media.licdn.com/dms/image/v2/D4D03AQHgdEA3WVAhNQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1692214950711?e=1765411200&v=beta&t=_rVEG7UleCcO-VIPbhVJaL1ydgLRXVDiVO3L08BOGAQ", name: "Team Member 2" },
+    { id: 3, image: "https://media.licdn.com/dms/image/v2/D5603AQExFwrFWBhafA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1702654018781?e=1765411200&v=beta&t=5M3cHkL2k9BGF5uyDEvt-F-z3X3IvepQXLwcLpgB5FA", name: "Team Member 3" },
+    { id: 4, image: "https://media.licdn.com/dms/image/v2/D4D03AQEq17gHXLfK7Q/profile-displayphoto-shrink_800_800/B4DZSRvrVTGcAc-/0/1737611983348?e=1765411200&v=beta&t=0WgrsWrI1E9o2DsWcnmFxKSjtGabEZOP-9WLA3fu8nM", name: "Team Member 4" }
   ];
 
   const scrollToTeamSection = () => {
@@ -298,7 +299,7 @@ const Hero = () => {
                   Expert Team
                 </p>
                 <p className="text-xs text-gray-600 group-hover:text-gray-700 transition-colors">
-                  6+ Developers
+                  8+ Developers
                 </p>
               </div>
               <svg

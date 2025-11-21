@@ -113,7 +113,7 @@ const ServicesSection = () => {
 
   return (
     <>
-      <style jsx>{`
+      <style>{`
         .div-cutout {
           clip-path: polygon(
             0 0,
