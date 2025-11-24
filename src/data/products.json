@@ -1,0 +1,82 @@
+[
+    {
+        "id": "startup-bihar",
+        "type": "product",
+        "title": "Startup Bihar",
+        "category": "Government Initiative",
+        "desc": "Fostering innovation and entrepreneurship in Bihar.",
+        "fullDescription": "Startup Bihar is a flagship initiative by the Government of Bihar to create a vibrant ecosystem for innovation and entrepreneurship. It offers a comprehensive support system including interest-free loans, incubation support, and mentorship programs. The policy focuses on empowering youth, women, and marginalized communities to turn their ideas into successful businesses, thereby driving economic growth and job creation in the state.",
+        "tags": [
+            "Innovation",
+            "Entrepreneurship",
+            "Funding"
+        ],
+        "img": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80",
+        "client": "Department of Industries",
+        "date": "Ongoing",
+        "images": [
+            "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
+    {
+        "id": "buddha-samyak-darshan",
+        "type": "product",
+        "title": "Buddha Samyak Darshan",
+        "category": "Tourism & Culture",
+        "desc": "A world-class museum and stupa dedicated to Lord Buddha.",
+        "fullDescription": "The Buddha Samyak Darshan Museum and Memorial Stupa is a monumental project located in Vaishali, Bihar. It houses the holy relics of Lord Buddha, offering a spiritual and historical journey into his life and teachings. The complex features state-of-the-art galleries, immersive exhibits, and a magnificent stupa built in traditional architectural style. It stands as a symbol of peace and a major pilgrimage site for Buddhists worldwide.",
+        "tags": [
+            "Heritage",
+            "Buddhism",
+            "Museum"
+        ],
+        "img": "https://images.unsplash.com/photo-1605649487215-476786814580?auto=format&fit=crop&w=800&q=80",
+        "client": "Art, Culture & Youth Dept",
+        "date": "Under Construction",
+        "images": [
+            "https://images.unsplash.com/photo-1568226127025-452758661601?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1599837565318-67429bde8a6d?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
+    {
+        "id": "film-bihar",
+        "type": "product",
+        "title": "Film Bihar",
+        "category": "Media & Entertainment",
+        "desc": "Promoting Bihar as a premier film shooting destination.",
+        "fullDescription": "The Bihar State Film Development and Finance Corporation (BSFDFC) aims to revive and promote the film industry in the state. Through the Bihar Film Policy, it offers attractive subsidies, single-window clearances, and infrastructural support to filmmakers. The initiative highlights Bihar's scenic locations, rich culture, and untold stories, inviting production houses to explore the state's potential as a filming hub.",
+        "tags": [
+            "Film Policy",
+            "Subsidies",
+            "Cinema"
+        ],
+        "img": "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80",
+        "client": "BSFDFC",
+        "date": "Ongoing",
+        "images": [
+            "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
+    {
+        "id": "bihar-heritage-project",
+        "type": "product",
+        "title": "Bihar Heritage Project",
+        "category": "Digital Heritage",
+        "desc": "Preserving and showcasing Bihar's glorious past digitally.",
+        "fullDescription": "The Bihar Heritage Project is a digital initiative dedicated to documenting and preserving the rich cultural and historical legacy of Bihar. It serves as a virtual repository of the state's monuments, archaeological sites, and intangible heritage. Through interactive exhibits, high-quality imagery, and scholarly research, the project aims to educate the global audience about Bihar's significant contribution to Indian history and civilization.",
+        "tags": [
+            "Digital Archive",
+            "History",
+            "Preservation"
+        ],
+        "img": "https://images.unsplash.com/photo-1588416936097-41850ab3d86d?auto=format&fit=crop&w=800&q=80",
+        "client": "Bihar Heritage Dev Society",
+        "date": "2024",
+        "images": [
+            "https://images.unsplash.com/photo-1590050752117-238cb0fb9dbb?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1622308644420-a94bb8a23663?auto=format&fit=crop&w=800&q=80"
+        ]
+    }
+]

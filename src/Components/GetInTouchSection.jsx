@@ -16,10 +16,10 @@ const GetInTouchSection = () => {
   const scrollToContact = (e) => {
     e.preventDefault(); // ✅ Prevent default behavior
     e.stopPropagation(); // ✅ Stop event bubbling
-    
+
     const contactSection = document.getElementById('contact-us');
     if (contactSection) {
-      contactSection.scrollIntoView({ 
+      contactSection.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
@@ -29,106 +29,108 @@ const GetInTouchSection = () => {
   useEffect(() => {
     if (!containerRef.current || !textWrapperRef.current || !imageContainerRef.current) return;
 
-    const textWidth = textWrapperRef.current.scrollWidth;
-    const windowWidth = window.innerWidth;
+    const ctx = gsap.context(() => {
+      const textWidth = textWrapperRef.current.scrollWidth;
+      const windowWidth = window.innerWidth;
 
-    // Master timeline for horizontal scroll
-    const masterTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: () => `+=${textWidth - windowWidth + 1500}`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        fastScrollEnd: true,
-        preventOverlaps: true,
-        // ✅ Add this to prevent scroll interference
-        onLeave: () => {
-          // Ensure ScrollTrigger doesn't interfere with navigation
-          ScrollTrigger.refresh();
-        }
-      }
-    });
-
-    // Horizontal text scroll
-    masterTimeline.to(textWrapperRef.current, {
-      x: () => -(textWidth - windowWidth),
-      ease: "none",
-      duration: 3,
-      force3D: true
-    }, 0);
-
-    // Image section appears
-    masterTimeline.fromTo(
-      imageContainerRef.current,
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        ease: "power2.out",
-        duration: 1,
-        force3D: true
-      },
-      0.5
-    );
-
-    // Image itself reveals
-    masterTimeline.fromTo(
-      imageRef.current,
-      { scale: 1.2, opacity: 0 },
-      {
-        scale: 1,
-        opacity: 1,
-        ease: "power2.out",
-        duration: 0.8,
-        force3D: true
-      },
-      1.0
-    );
-
-    // Chat bubbles and badges stagger in
-    const validBubbles = chatBubblesRef.current.filter(el => el !== null);
-
-    masterTimeline.fromTo(
-      validBubbles,
-      {
-        y: 50,
-        opacity: 0,
-        scale: 0.5
-      },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        stagger: {
-          amount: 1,
-          from: "start"
-        },
-        ease: "back.out(1.7)",
-        duration: 0.6,
-        force3D: true
-      },
-      1.5
-    );
-
-    // Floating animation for badges
-    masterTimeline.add(() => {
-      validBubbles.forEach((bubble, index) => {
-        if (bubble) {
-          gsap.to(bubble, {
-            y: "+=8",
-            duration: 2 + (index * 0.2),
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            delay: index * 0.15,
-            force3D: true
-          });
+      // Master timeline for horizontal scroll
+      const masterTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: () => `+=${textWidth - windowWidth + 1500}`,
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          fastScrollEnd: true,
+          preventOverlaps: true,
+          // ✅ Add this to prevent scroll interference
+          onLeave: () => {
+            // Ensure ScrollTrigger doesn't interfere with navigation
+            ScrollTrigger.refresh();
+          }
         }
       });
-    }, 2.2);
+
+      // Horizontal text scroll
+      masterTimeline.to(textWrapperRef.current, {
+        x: () => -(textWidth - windowWidth),
+        ease: "none",
+        duration: 3,
+        force3D: true
+      }, 0);
+
+      // Image section appears
+      masterTimeline.fromTo(
+        imageContainerRef.current,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          ease: "power2.out",
+          duration: 1,
+          force3D: true
+        },
+        0.5
+      );
+
+      // Image itself reveals
+      masterTimeline.fromTo(
+        imageRef.current,
+        { scale: 1.2, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          ease: "power2.out",
+          duration: 0.8,
+          force3D: true
+        },
+        1.0
+      );
+
+      // Chat bubbles and badges stagger in
+      const validBubbles = chatBubblesRef.current.filter(el => el !== null);
+
+      masterTimeline.fromTo(
+        validBubbles,
+        {
+          y: 50,
+          opacity: 0,
+          scale: 0.5
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          stagger: {
+            amount: 1,
+            from: "start"
+          },
+          ease: "back.out(1.7)",
+          duration: 0.6,
+          force3D: true
+        },
+        1.5
+      );
+
+      // Floating animation for badges
+      masterTimeline.add(() => {
+        validBubbles.forEach((bubble, index) => {
+          if (bubble) {
+            gsap.to(bubble, {
+              y: "+=8",
+              duration: 2 + (index * 0.2),
+              repeat: -1,
+              yoyo: true,
+              ease: "sine.inOut",
+              delay: index * 0.15,
+              force3D: true
+            });
+          }
+        });
+      }, 2.2);
+    }, containerRef); // Scope to containerRef
 
     const handleResize = () => {
       ScrollTrigger.refresh();
@@ -138,12 +140,8 @@ const GetInTouchSection = () => {
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      // Kill floating animations
-      validBubbles.forEach(bubble => {
-        if (bubble) gsap.killTweensOf(bubble);
-      });
-      masterTimeline.scrollTrigger?.kill();
-      masterTimeline.kill();
+      ScrollTrigger.getAll().forEach(t => t.kill()); // Kill all triggers to force unpin
+      ctx.revert(); // Cleanup everything
     };
   }, []);
 
@@ -157,7 +155,7 @@ const GetInTouchSection = () => {
       <div className="relative h-screen flex flex-col justify-between">
 
         {/* Horizontal Scrolling Text - Top Section */}
-        <div className="relative z-20 h-[30vh] flex items-start pt-8">
+        <div className="relative z-10 h-[30vh] flex items-start pt-8">
           <div
             ref={textWrapperRef}
             className="flex items-center whitespace-nowrap will-change-transform px-8"
@@ -235,7 +233,7 @@ const GetInTouchSection = () => {
                 ref={el => chatBubblesRef.current[3] = el}
                 style={{ willChange: 'transform' }}
               >
-                <button 
+                <button
                   onClick={scrollToContact}
                   onMouseDown={(e) => e.stopPropagation()} // ✅ Prevent interference
                   className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-base shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer relative z-50"

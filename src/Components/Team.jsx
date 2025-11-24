@@ -32,8 +32,9 @@ const members = [
     name: "Aditya Raj ",
     img: "https://media.licdn.com/dms/image/v2/D4D03AQEq17gHXLfK7Q/profile-displayphoto-shrink_800_800/B4DZSRvrVTGcAc-/0/1737611983348?e=1765411200&v=beta&t=0WgrsWrI1E9o2DsWcnmFxKSjtGabEZOP-9WLA3fu8nM",
   },
+  
   // new members
-   {
+  {
     role: "React Developer",
     name: "Pranav Kumar",
     img: "https://media.licdn.com/dms/image/v2/D5603AQGK4D8tOKZuCQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1712578935106?e=1765411200&v=beta&t=o66tWWvYtRRiUBevQyzQpl0xbK8lMPRqriX2-vM_EJs",
@@ -45,6 +46,11 @@ const members = [
   },
   {
     role: "React Developer",
+    name: "Aman Kumar",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQEkYJhghVPZ0g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726213256893?e=1765411200&v=beta&t=leMEh7ln0i-brmobrWie4CkHmRyzjLvxpeyoudW7msk",
+  },
+  {
+    role: "React Developer",
     name: "Manish Kumar",
     img: "https://media.licdn.com/dms/image/v2/D4D35AQGE_NRQ-PomEg/profile-framedphoto-shrink_800_800/B4DZkj7yoNIcAg-/0/1757244500804?e=1764136800&v=beta&t=3KPF6fdEra392PCv50fyhtSa6hKs5TfquqUBDoTSSAM",
   },
@@ -53,7 +59,7 @@ const members = [
     name: "Priyanshu Shankar ",
     img: "https://media.licdn.com/dms/image/v2/D4D03AQFXF8LraML_hw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714559521498?e=1765411200&v=beta&t=XRZA9ZBJ98iz8m80hiAOChCxlluuqgnDTBz6gYjrblY",
   },
- 
+
 ];
 
 
@@ -71,55 +77,62 @@ const Team = () => {
   const [visibleIdx, setVisibleIdx] = useState(null);
 
   useEffect(() => {
-    // Owner section animation with ScrollTrigger
-    if (ownerRef.current) {
-      gsap.fromTo(
-        ownerRef.current,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ownerRef.current,
-            start: "top 85%",
-            end: "top 50%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }
+    const ctx = gsap.context(() => {
+      // Owner section animation with ScrollTrigger
+      if (ownerRef.current) {
+        gsap.fromTo(
+          ownerRef.current,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ownerRef.current,
+              start: "top 85%",
+              end: "top 50%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
 
-    // Team members scroll animation with stagger
-    rowRefs.current.filter(Boolean).forEach((row, index) => {
-      gsap.fromTo(
-        row,
-        { 
-          opacity: 0, 
-          x: -50,
-          y: 30
-        },
-        {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: row,
-            start: "top 90%",
-            end: "top 60%",
-            toggleActions: "play none none reverse",
+      // Team members scroll animation with stagger
+      rowRefs.current.filter(Boolean).forEach((row, index) => {
+        gsap.fromTo(
+          row,
+          {
+            opacity: 0,
+            x: -50,
+            y: 30
           },
-          delay: index * 0.1,
-        }
-      );
-    });
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: row,
+              start: "top 90%",
+              end: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+            delay: index * 0.1,
+          }
+        );
+      });
+    }, containerRef);
 
-    // Cleanup ScrollTrigger instances
+    // Force refresh when component mounts or updates
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 600);
+
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      clearTimeout(timer);
+      ctx.revert();
     };
   }, []);
 
@@ -268,7 +281,7 @@ const Team = () => {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-10 mb-20 px-4" ref={containerRef} id="team-section">
+    <div className="w-full max-w-5xl mx-auto py-10 mb-20 px-4 relative z-10 bg-white" ref={containerRef} id="team-section">
       <div
         ref={ownerRef}
         className="flex items-center gap-7 pb-8 mb-8 border-b border-gray-300 transition-all duration-300 hover:border-gray-400"
@@ -336,9 +349,9 @@ const Team = () => {
       </div>
 
       {/* Fixed position container for all images - positioned far to the right */}
-      <div 
-        className="fixed pointer-events-none" 
-        style={{ 
+      <div
+        className="fixed pointer-events-none"
+        style={{
           zIndex: 9999,
           top: 0,
           right: '18%',

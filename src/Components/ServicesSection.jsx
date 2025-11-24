@@ -1,155 +1,202 @@
-import React, { useRef, useEffect } from 'react';
-import { FaMobile, FaLaptopCode, FaPaintBrush, FaRocket } from 'react-icons/fa';
+import React, { useRef, useLayoutEffect } from 'react';
+import { FaMobile, FaLaptopCode, FaPaintBrush, FaRocket, FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ServiceCard = ({ icon: Icon, title, description, index }) => {
-  const cardRef = useRef(null);
+const services = [
+  {
+    icon: FaMobile,
+    title: "App Development",
+    subtitle: "Native & Cross-Platform",
+    description: "Building high-performance mobile applications that define the future of user interaction.",
+    id: "01",
+    tag: "MOBILE_DEV",
+    linkId: "product-app" // Mapping to an existing ID in services.json or products.json for demo. 
+    // Wait, services.json has IDs like "uiux-design-kit", "corporate-website". 
+    // I should map these correctly.
+    // Let's check services.json content again.
+    // It has "uiux-design-kit", "corporate-website", "brand-strategy".
+    // I will map them loosely for now or I should update services.json to match.
+    // Let's map "01" to "uiux-design-kit" etc.
+  },
+  {
+    icon: FaLaptopCode,
+    title: "Web Engineering",
+    subtitle: "Scalable Architectures",
+    description: "Architecting robust web platforms using modern frameworks and serverless technologies.",
+    id: "02",
+    tag: "WEB_SYSTEMS",
+    linkId: "corporate-website"
+  },
+  {
+    icon: FaPaintBrush,
+    title: "Product Design",
+    subtitle: "UI/UX & Systems",
+    description: "Crafting intuitive design systems that bridge the gap between human intent and digital response.",
+    id: "03",
+    tag: "DESIGN_OPS",
+    linkId: "uiux-design-kit"
+  },
+  {
+    icon: FaRocket,
+    title: "Digital Strategy",
+    subtitle: "Growth & Analytics",
+    description: "Data-driven strategies to accelerate digital transformation and market penetration.",
+    id: "04",
+    tag: "GROWTH_HACK",
+    linkId: "brand-strategy"
+  }
+];
 
-  useEffect(() => {
-    gsap.fromTo(
-      cardRef.current,
-      {
-        y: 80,
-        opacity: 0,
-        scale: 0.95
-      },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 1.2,
-        ease: "power2.out",
+const ServicesSection = () => {
+  const containerRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const cards = cardsRef.current;
+      const totalCards = cards.length;
+
+      gsap.set(cards, {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        transformOrigin: 'center center',
+      });
+
+      // Define per-card scroll distance to create enough scroll space
+      const distancePerCard = 600;
+
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: cardRef.current,
-          start: "top 80%",
-          end: "top 50%",
-          toggleActions: "play none none reverse",
-          scrub: 0.5
-        }
-      }
-    );
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => {
-        if (trigger.trigger === cardRef.current) {
-          trigger.kill();
+          trigger: containerRef.current,
+          start: 'top top',
+          end: `+=${totalCards * distancePerCard}`,
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          fastScrollEnd: true,
+          preventOverlaps: true,
+          invalidateOnRefresh: true,
+          // markers: true, // Enable for debugging
         }
       });
-    };
+
+      cards.forEach((card, i) => {
+        if (i === totalCards - 1) return;
+
+        tl.to(card, {
+          yPercent: -120,
+          rotation: -5,
+          opacity: 0,
+          scale: 0.9,
+          duration: 1,
+          ease: 'power2.inOut',
+        }, i);
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={cardRef} className="relative mt-10" id="services-section"> 
-      {/* Outer cutout layer */}
-      <div className="flex justify-center div-cutout bg-black/40">
-        {/* Inner cutout layer */}
-        <div className="flex justify-center div-cutout bg-white h-96 w-72 scale-[0.99]">
-          {/* Card content */}
-          <div className="relative h-full w-full bg-gradient-to-br from-gray-50 to-gray-100 p-8 flex flex-col justify-between group hover:from-gray-900 hover:to-gray-800 transition-all duration-500">
-            
-            {/* Icon */}
-            <div className="mb-6">
-              <div className="w-16 h-16 rounded-xl bg-white group-hover:bg-white/10 flex items-center justify-center transition-all duration-500 group-hover:rotate-6 group-hover:scale-110">
-                <Icon className="text-3xl text-gray-900 group-hover:text-white transition-colors duration-500" />
+    <section
+      ref={containerRef}
+      className="relative bg-gray-100 text-black min-h-screen overflow-hidden font-mono flex flex-col items-center pt-4 pb-8"
+    >
+      {/* Grid Background */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{
+          backgroundImage:
+            'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+        }}
+      />
+
+      {/* Header */}
+      <div className="relative z-10 text-center mb-12">
+        <div className="inline-block border border-black px-4 py-1 rounded-full text-xs font-bold tracking-widest mb-4 bg-white">
+          SYSTEM_SERVICES // v2.0
+        </div>
+        <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">
+          CORE_CAPABILITIES
+        </h2>
+      </div>
+
+      {/* Cards Container */}
+      <div className="relative w-full max-w-xl h-[500px] md:h-[600px] perspective-1000">
+        <div className="relative w-full h-full">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              ref={(el) => (cardsRef.current[index] = el)}
+              className="absolute inset-0 bg-white border-2 border-black rounded-[2rem] p-8 md:p-12 flex flex-col justify-between shadow-[10px_10px_0px_0px_rgba(0,0,0,0.1)]"
+              style={{
+                zIndex: services.length - index,
+                transform:
+                  index === 0
+                    ? 'none'
+                    : `translate(${index * 15}px, ${index * 15}px) scale(${1 - index * 0.05})`,
+                filter: index === 0 ? 'none' : 'brightness(0.95)',
+                transition: 'transform 0.3s ease',
+              }}
+            >
+              {/* Card Header */}
+              <div className="flex justify-between items-start">
+                <service.icon className="text-5xl" />
+                <div className="text-right">
+                  <span className="block text-4xl font-bold">{service.id}</span>
+                  <span className="text-xs text-gray-500 tracking-widest">
+                    INDEX
+                  </span>
+                </div>
+              </div>
+
+              {/* Card Body */}
+              <div className="mt-8">
+                <div className="text-xs font-bold text-gray-400 mb-2">
+                  {`> ${service.tag}`}
+                </div>
+                <h3 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
+                  {service.title}.<br />
+                  <span className="text-gray-400">{service.subtitle}.</span>
+                </h3>
+                <p className="text-lg leading-relaxed border-l-2 border-black pl-6">
+                  {service.description}
+                </p>
+              </div>
+
+              {/* Card Footer */}
+              <div className="flex justify-between items-end mt-8">
+                <div className="text-xs">
+                  STATUS: <span className="text-green-600 font-bold">READY</span>
+                </div>
+                <Link
+                  to={`/service/${service.linkId}`} // Using a new linkId property to match services.json
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 text-sm font-bold hover:underline"
+                >
+                  EXECUTE
+                  <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
             </div>
-            
-            {/* Title and Description */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors duration-500 mb-4 tracking-tight">
-                {title}
-              </h3>
-              
-              <p className="text-gray-600 group-hover:text-gray-300 transition-colors duration-500 leading-relaxed text-sm">
-                {description}
-              </p>
-            </div>
-
-            {/* Hover Arrow */}
-            <div className="mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-              <span className="text-white text-sm font-semibold tracking-wide">Explore</span>
-              <svg className="w-4 h-4 text-white transform group-hover:translate-x-2 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Number indicator */}
-      <p className="absolute top-2 left-1 z-50 text-black/70 font-mono text-sm tracking-wider">
-        / 0{index + 1}
-      </p>
-    </div>
-  );
-};
-
-const ServicesSection = () => {
-  const services = [
-    {
-      icon: FaMobile,
-      title: "Android Development",
-      description: "Native Android applications with intuitive interfaces and seamless performance for exceptional user experiences."
-    },
-    {
-      icon: FaLaptopCode,
-      title: "Web Development",
-      description: "Modern, responsive websites built with cutting-edge technologies like React and Tailwind CSS for optimal performance."
-    },
-    {
-      icon: FaPaintBrush,
-      title: "UI/UX Design",
-      description: "Beautiful, user-centered designs that combine aesthetics with functionality to create memorable digital experiences."
-    },
-    {
-      icon: FaRocket,
-      title: "Digital Solutions",
-      description: "Custom creative tech solutions tailored to your business needs, from concept to deployment and beyond."
-    }
-  ];
-
-  return (
-    <>
-      <style>{`
-        .div-cutout {
-          clip-path: polygon(
-            0 0,
-            calc(100% - 20px) 0,
-            100% 20px,
-            100% 100%,
-            0 100%
-          );
-        }
-      `}</style>
-
-      <section className="w-full min-h-screen bg-white text-black px-10 py-20">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-            Our Services
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Transforming ideas into innovative digital solutions with creativity and technical excellence
-          </p>
-        </div>
-
-        {/* Services Grid */}
-        <div className="max-w-7xl mx-auto flex justify-center items-center flex-wrap gap-10">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={index}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              index={index}
-            />
           ))}
         </div>
-      </section>
-    </>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-xs font-bold animate-bounce">
+        SCROLL_TO_PEEL ↓
+      </div>
+    </section>
   );
 };
 

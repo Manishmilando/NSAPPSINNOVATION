@@ -1,0 +1,62 @@
+[
+    {
+        "id": "uiux-design-kit",
+        "type": "service",
+        "title": "UI/UX Design Kit",
+        "category": "Design System",
+        "desc": "A complete design system for enterprise applications, focusing on accessibility and consistent brand identity.",
+        "fullDescription": "We developed a comprehensive design system to unify the digital products of a major enterprise. The kit includes a library of reusable components, detailed usage guidelines, and accessibility standards (WCAG 2.1). This system has streamlined the development process, ensured brand consistency across all platforms, and significantly improved the user experience for employees and customers alike.",
+        "tags": [
+            "Figma",
+            "Storybook",
+            "CSS Modules"
+        ],
+        "img": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
+        "client": "Enterprise Corp",
+        "date": "September 2023",
+        "images": [
+            "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1586717791821-3f44a5638d48?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
+    {
+        "id": "corporate-website",
+        "type": "service",
+        "title": "Corporate Website",
+        "category": "Web Development",
+        "desc": "High-performance corporate presence with advanced SEO optimization and dynamic content management.",
+        "fullDescription": "A complete overhaul of a corporate website to improve performance and SEO rankings. We utilized Gatsby for static site generation, ensuring blazing fast load times. Content is managed via Sanity CMS, allowing the marketing team to easily update pages without developer intervention. The result was a 40% increase in organic traffic and a significant boost in lead generation.",
+        "tags": [
+            "Gatsby",
+            "Sanity",
+            "Netlify"
+        ],
+        "img": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        "client": "Business Solutions Ltd",
+        "date": "November 2023",
+        "images": [
+            "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
+    {
+        "id": "brand-strategy",
+        "type": "service",
+        "title": "Brand Strategy",
+        "category": "Branding",
+        "desc": "Rebranding campaign for a tech startup, including logo design, voice & tone guidelines, and marketing collateral.",
+        "fullDescription": "We partnered with a promising tech startup to define their visual and verbal identity. The project involved extensive market research, competitor analysis, and workshops with stakeholders. We delivered a complete brand book covering logo usage, color palettes, typography, and tone of voice. The new brand identity successfully positions them as an innovative leader in their industry.",
+        "tags": [
+            "Adobe Suite",
+            "Strategy",
+            "Identity"
+        ],
+        "img": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80",
+        "client": "NextGen Tech",
+        "date": "July 2023",
+        "images": [
+            "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
+        ]
+    }
+]

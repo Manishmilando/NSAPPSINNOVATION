@@ -12,10 +12,10 @@ import Team from "./Components/Team";
 import GetInTouchSection from "./Components/GetInTouchSection";
 import ContactUs from "./Components/ContactUs";
 import ServicesSection from "./Components/ServicesSection";
-import Projects from "./Components/ProjectSection";
-import ExploreProjects from './Pages/ExploreProjects';
-import ProductsPage from './Pages/ProductsPage';
-import ServicesPage from './Pages/ServicesPage';
+import ProductSection from "./Components/ProductSection";
+import ServiceSection from "./Components/ServiceSection";
+import ProductDetail from "./Components/ProductDetail";
+import ServiceDetail from "./Components/ServiceDetail";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -27,6 +27,13 @@ function ScrollToTop() {
       window.scrollTo(0, 0);
     }
   }, [pathname]);
+
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   return null;
 }
@@ -51,7 +58,8 @@ function App() {
                   <Hero />
                   <AboutUs />
                   <ServicesSection />
-                  <Projects />
+                  <ProductSection />
+                  <ServiceSection />
                   <Team />
                   <GetInTouchSection />
                   <ContactUs />
@@ -61,14 +69,13 @@ function App() {
               }
             />
 
-            {/* Projects Routes - MUST be before other routes */}
-            <Route path="/projects/explore" element={<ExploreProjects />} />
-            <Route path="/projects/products" element={<ProductsPage />} />
-            <Route path="/projects/services" element={<ServicesPage />} />
+
 
             {/* Other Pages */}
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/service/:id" element={<ServiceDetail />} />
           </Routes>
         </>
       )}
