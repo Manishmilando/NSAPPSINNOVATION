@@ -79,8 +79,11 @@ const ServicesSection = () => {
 
   return (
     <section ref={sectionRef} className="bg-gray-50 text-black font-sans py-24 overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase">Core_Capabilities</h2>
+      <div className="max-w-7xl mx-auto px-6 relative z-10 top-8">
+        <h2 className="text-3xl md:text-4xl font-semibold uppercase tracking-wide text-gray-800 border-b-2 border-gray-800 inline-block pb-1">
+          Services
+        </h2>
+
         <p className="text-xl font-mono text-gray-600 max-w-2xl border-l-4 border-black pl-6 mt-6">
           Comprehensive digital solutions tailored to elevate your business in the modern landscape.
         </p>
@@ -97,7 +100,7 @@ const ServicesSection = () => {
             return (
               <div
                 key={index}
-                className={`service-card flex-shrink-0 bg-white rounded-[2rem] border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300 ease-out group relative overflow-hidden flex flex-col
+                className={`service-card flex-shrink-0 bg-white rounded-[2rem] border-2 border-black hover:-translate-y-1 transition-all duration-300 ease-out group relative overflow-hidden flex flex-col
                     ${isExpanded ? 'w-[500px] md:w-[650px]' : 'w-[380px] md:w-[480px]'}
                 `}
               >
