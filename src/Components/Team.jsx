@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const owner = {
   name: "Nishant Shekhar",
-  title: "Owner & Founder",
+  title: "Founder",
   img: "https://media.licdn.com/dms/image/v2/D4D03AQFUD3EMJW-SMQ/profile-displayphoto-shrink_800_800/B4DZR_Z.U3HkAg-/0/1737304303571?e=1765411200&v=beta&t=az_Mt9zkLGTMIpekhzkDOFWzYy2vAqVdoOsc5KrTelE",
   desc: "Leading the vision and strategy. Nishant ensures our team delivers exceptional results and innovation every day.",
 };

@@ -2,6 +2,7 @@ import React, { useRef, useState, useLayoutEffect } from 'react';
 import { Smartphone, Laptop, Palette, Rocket, ArrowRight, Minus } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import CurveSVGManipulation from '../Components/Svgmanupulation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,17 +80,17 @@ const ServicesSection = () => {
 
   return (
     <section ref={sectionRef} className="bg-gray-50 text-black font-sans py-24 overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-6 relative z-10 top-8">
-        <h2 className="text-3xl md:text-4xl font-semibold uppercase tracking-wide text-gray-800 border-b-2 border-gray-800 inline-block pb-1">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 ">
+        <h2 className="relative text-3xl md:text-4xl  text-gray-800 pb-1 pointer-events-none">
           Services
         </h2>
-
-        <p className="text-xl font-mono text-gray-600 max-w-2xl border-l-4 border-black pl-6 mt-6">
-          Comprehensive digital solutions tailored to elevate your business in the modern landscape.
-        </p>
       </div>
+      <div className=" absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[100]">
+          <CurveSVGManipulation />
+        </div>
 
-      <div ref={triggerRef} className="w-full h-[700px] flex items-center relative z-10">
+
+      <div ref={triggerRef} className="w-full h-[700px] flex items-center relative z-10 pt-34">
         <div
           ref={containerRef}
           className="flex gap-12 px-6 md:px-12 w-fit"

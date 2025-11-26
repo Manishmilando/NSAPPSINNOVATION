@@ -11,43 +11,51 @@ import "../App.css"; // Assuming you have some global styles
 
 const testimonials = [
   {
+    id: 1,
     name: 'Sri Pranav Kumar, IAS',
-    role: 'Owner of Aburaya Fried Chicken',
+
+    company: 'Aburaya Fried Chicken',
     quote:
-      '“The best part is your customer service. It’s so quick and friendly; it just made my life easier. If somebody asks me, I recommend Owner.”',
+      "The best part is your customer service. It's so quick and friendly; it just made my life easier. If somebody asks me, I definitely recommend NS Apps Innovations.",
     image: '/Pranav.png',
-    sales: '+$300,000',
-    savings: '$100,000',
+    rating: 5, // optional
+    date: '2025-09-12' // optional
   },
   {
-    name: ' Sri Vaibhav Srivastava, IAS',
-    role: 'Founder of Bihar Eats',
+    id: 2,
+    name: 'Sri Vaibhav Srivastava, IAS',
+
+    company: 'Bihar Eats',
     quote:
-      '“This platform boosted our outreach and streamlined our delivery channels in the best possible way!”',
+      "This platform boosted our outreach and streamlined our delivery channels in the best possible way!",
     image: '/vaibhav.png',
-    sales: '+$200,000',
-    savings: '$80,000',
+    rating: 5,
+    date: '2025-10-05'
   },
   {
+    id: 3,
     name: 'Sri Pranav Kumar, IAS',
-    role: 'Owner of Aburaya Fried Chicken',
+
+    company: 'Aburaya Fried Chicken',
     quote:
-      '“The best part is your customer service. It’s so quick and friendly; it just made my life easier. If somebody asks me, I recommend Owner.”',
+      "The best part is your customer service. It's so quick and friendly; it just made my life easier. If somebody asks me, I definitely recommend NS Apps Innovations.",
     image: '/Pranav.png',
-    sales: '+$300,000',
-    savings: '$100,000',
+    rating: 5, // optional
+    date: '2025-09-12' // optional
   },
   {
-    name: 'Sri,Vaibhav Srivastava, IAS',
-    role: 'Founder of Bihar Eats',
+    id: 4,
+    name: 'Sri Vaibhav Srivastava, IAS',
+
+    company: 'Bihar Eats',
     quote:
-      '“This platform boosted our outreach and streamlined our delivery channels in the best possible way!”',
+      "This platform boosted our outreach and streamlined our delivery channels in the best possible way!",
     image: '/vaibhav.png',
-    sales: '+$200,000',
-    savings: '$80,000',
+    rating: 5,
+    date: '2025-10-05'
   },
-  
 ];
+
 
 
 
@@ -56,12 +64,12 @@ const TestimonialCarousel = () => {
   return (
     <div className="bg-gray-100 py-16 relative overflow-x-hidden">
       <Swiper
-        loop
+        loop={true}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
         }}
-        centeredSlides
+        centeredSlides={true}
         spaceBetween={30}
 
         slidesPerView={1.5}
@@ -90,7 +98,7 @@ const TestimonialCarousel = () => {
               className="group bg-white rounded-3xl border border-gray-100 overflow-hidden flex flex-col md:flex-row w-full relative isolate transition-all duration-500 hover:shadow-2xl"
             >
               {/* Blue Background Hover Effect */}
-              <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-[#1e1b4b] rounded-full transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[35] z-0" />
+              <div className="absolute -top-10 -left-40 w-[30rem] h-[30rem] bg-[#1e1b4b] rounded-full transition-transform duration-1000 group-hover:duration-[5000ms] ease-in-out group-hover:scale-[35] z-0" />
 
               {/* Image Section */}
               <div className="relative w-full md:w-[400px] h-[400px] z-10 flex-shrink-0">
@@ -110,22 +118,11 @@ const TestimonialCarousel = () => {
 
               {/* Text Section */}
               <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between z-10 relative">
-                <p className="text-2xl md:text-3xl font-semibold text-gray-900 group-hover:text-white mb-6 leading-snug transition-colors duration-300">
+                <p className="text-2xl md:text-3xl font-semibold text-gray-900 group-hover:text-white mb-6 leading-snug transition-colors duration-300 group-hover:duration-[3000ms]">
                   {t.quote}
                 </p>
-                <div className="flex flex-wrap items-center gap-8 mb-6">
-                  <div>
-                    <div className="text-2xl font-bold text-black group-hover:text-white transition-colors duration-300">{t.sales}</div>
-                    <div className="text-sm text-gray-500 group-hover:text-gray-300 transition-colors duration-300">Online sales</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-black group-hover:text-white transition-colors duration-300">{t.savings}</div>
-                    <div className="text-sm text-gray-500 group-hover:text-gray-300 transition-colors duration-300">Delivery fees saved</div>
-                  </div>
-                </div>
-                <button className="bg-gray-100 text-gray-900 group-hover:bg-white group-hover:text-[#1e1b4b] font-medium px-5 py-3 rounded-xl text-sm w-fit transition-all duration-300 shadow-sm">
-                  See {t.name.split(' ')[0]}'s story →
-                </button>
+
+
               </div>
             </div>
           </SwiperSlide>

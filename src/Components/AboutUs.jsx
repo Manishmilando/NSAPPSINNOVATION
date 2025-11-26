@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import Lottie from 'lottie-react';
+// import CurveSVGManipulation from './Svgmanupulation'; 
 
 const CARD_TILT_MAX = 12; // degrees
 
@@ -119,7 +120,7 @@ const AboutUsSection = () => {
   ];
 
   return (
-    <section className="relative bg-gray-50 py-20 px-4 z-[50]">
+    <section className="relative bg-gray-50 py-20 px-4 z-[10]">
       <div className="max-w-6xl mx-auto">
         {/* Tab Navigation with Animated Underlines */}
         <motion.div 
@@ -355,6 +356,9 @@ const AboutUsSection = () => {
           )}
         </AnimatePresence>
       </div>
+          {/* <div className="absolute left-0 bottom-0 top-8/9 w-full z-0">
+        <CurveSVGManipulation />
+      </div> */}
     </section>
   );
 };

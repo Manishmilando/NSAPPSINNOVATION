@@ -16,7 +16,7 @@ import ProductSection from "./Components/ProductSection";
 import ServiceSection from "./Components/ServiceSection";
 import ProductDetail from "./Components/ProductDetail";
 import ServiceDetail from "./Components/ServiceDetail";
-
+import CursorDot from "./Components/Cursor";
 // Scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -55,7 +55,9 @@ function App() {
               path="/"
               element={
                 <>
+                
                   <Hero />
+                   <CursorDot />
                   <AboutUs />
                   <ServicesSection />
                   <ProductSection />

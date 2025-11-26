@@ -128,7 +128,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="relative h-[100vh] w-full overflow-hidden z-[10]" id="hero-section">
+    <div className="relative h-[100vh] w-full overflow-hidden z-[400]" id="hero-section">
       <AnimatePresence>
         {isAnyPanelOpen && (
           <motion.div

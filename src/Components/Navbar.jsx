@@ -115,7 +115,7 @@ const TopNavbar = () => {
   return (
     <div
       ref={navRef}
-      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] md:w-auto"
+      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-500 w-[95%] md:w-auto"
     >
       <div className="relative">
         {/* Outer glass border */}
