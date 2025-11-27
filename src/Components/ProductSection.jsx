@@ -61,12 +61,11 @@ const ProductSection = () => {
         );
     };
 
-    // Combine data based on state
-    // Initial: productsData + initialDummyProducts (to make 5)
-    // Expanded: productsData + initialDummyProducts + moreDummyProducts
-    const visibleProducts = isExpanded
-        ? [...productsData, ...initialDummyProducts, ...moreDummyProducts]
-        : [...productsData, ...initialDummyProducts];
+    // Combine all data sources
+    const allProducts = [...productsData, ...initialDummyProducts, ...moreDummyProducts];
+
+    // Visible products logic
+    const visibleProducts = isExpanded ? allProducts : allProducts.slice(0, 5);
 
     // Extended offsets for more cards
     const cardOffsets = ['mt-0', 'mt-8', 'mt-4', 'mt-12', 'mt-2', 'mt-10', 'mt-6', 'mt-14', 'mt-4', 'mt-8'];
@@ -80,7 +79,7 @@ const ProductSection = () => {
                         <h2 className="text-3xl md:text-4xl font-semibold uppercase tracking-wide text-gray-800 border-b-2 border-gray-800 inline-block pb-1">
                             Projects
                         </h2>
-                        
+
                     </div>
                 </div>
             </div>
@@ -189,7 +188,7 @@ const ProductSection = () => {
                     ))}
 
                     {/* View More Button Card */}
-                    {!isExpanded && (
+                    {!isExpanded && allProducts.length > 5 && (
                         <div className="product-card-item w-[300px] md:w-[350px] flex-shrink-0 h-[500px] flex items-center justify-center">
                             <button
                                 onClick={() => setIsExpanded(true)}

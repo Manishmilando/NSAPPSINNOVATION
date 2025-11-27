@@ -57,10 +57,11 @@ const ServiceSection = () => {
         );
     };
 
-    // Combine data: Initial (3 real + 2 dummy) -> Expanded (adds 4 more)
-    const visibleServices = isExpanded
-        ? [...servicesData, ...initialDummyServices, ...moreDummyServices]
-        : [...servicesData, ...initialDummyServices];
+    // Combine all data sources
+    const allServices = [...servicesData, ...initialDummyServices, ...moreDummyServices];
+
+    // Visible services logic
+    const visibleServices = isExpanded ? allServices : allServices.slice(0, 5);
 
     // Extended offsets for more cards
     const cardOffsets = ['mt-0', 'mt-12', 'mt-6', 'mt-8', 'mt-4', 'mt-10', 'mt-2', 'mt-14', 'mt-5', 'mt-12'];
@@ -74,7 +75,7 @@ const ServiceSection = () => {
                         <h2 className="text-3xl md:text-4xl font-semibold uppercase tracking-wide text-gray-800 border-b-2 border-gray-800 inline-block pb-1">
                             Services
                         </h2>
-                    
+
                     </div>
                 </div>
             </div>
@@ -190,7 +191,7 @@ const ServiceSection = () => {
                     ))}
 
                     {/* View More Button Card */}
-                    {!isExpanded && (
+                    {!isExpanded && allServices.length > 5 && (
                         <div className="service-card-item w-[300px] md:w-[350px] flex-shrink-0 h-[500px] flex items-center justify-center">
                             <button
                                 onClick={() => setIsExpanded(true)}

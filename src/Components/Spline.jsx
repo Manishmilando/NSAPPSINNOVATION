@@ -45,7 +45,7 @@ const Hero = () => {
   };
 
   const scrollToGetInTouch = () => {
-    const getInTouchSection = document.getElementById('get-in-touch-section');
+    const getInTouchSection = document.getElementById('get-in-touch');
     if (getInTouchSection) {
       getInTouchSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -423,7 +423,11 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        <Spline scene="https://prod.spline.design/qBXYgDd7378mKcb0/scene.splinecode" />
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          <div className="w-[150%] h-[150%] -ml-[25%] -mt-[25%] md:w-[125%] md:h-[125%] md:-ml-[12.5%] md:-mt-[12.5%]">
+            <Spline scene="https://prod.spline.design/qBXYgDd7378mKcb0/scene.splinecode" />
+          </div>
+        </div>
       </motion.section>
 
       <AnimatePresence>

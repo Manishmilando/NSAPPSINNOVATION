@@ -1,4 +1,46 @@
 [
+     {
+        "id": "vidhi-sakha",
+        "type": "service",
+        "title": "Vidhi Sakha",
+        "category": "Government & Legal",
+        "desc": "Litigation management system for the Health Department, Govt. of Bihar.",
+        "fullDescription": "Vidhi Sakha is a comprehensive litigation management system designed for the Health Department, Government of Bihar. It streamlines the tracking and management of legal cases, ensuring timely responses and effective monitoring of court matters. The portal provides secure access for officials to view case details, update statuses, and generate reports, thereby improving transparency and accountability in legal proceedings.",
+        "tags": [
+            "Litigation",
+            "Government",
+            "Management"
+        ],
+        "img": "/VidhiSakha.png",
+        "client": "Health Dept, Govt. of Bihar",
+        "date": "2025",
+        "link": "https://litman.web.app/",
+        "images": [
+            "/VidhiSakha.png",
+            "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
+    {
+        "id": "dak-pad",
+        "type": "service",
+        "title": "Dak Pad (Jan Samadhan)",
+        "category": "Public Grievance",
+        "desc": "Public grievance and application tracking portal for Bhojpur.",
+        "fullDescription": "Dak Pad, also known as \"Jan Samadhan - Lok Shikayat Evam Avedan Tracking Portal\", is a citizen-centric web application designed for the public of Bhojpur. It empowers citizens to submit complaints and requests online and track their status. The system allows the administration to securely manage and resolve these cases, ensuring efficient public service delivery and grievance redressal.",
+        "tags": [
+            "Grievance Redressal",
+            "Public Service",
+            "Tracking"
+        ],
+        "img": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+        "client": "Dept of Admin Reforms",
+        "date": "Ongoing",
+        "link": "https://dak-pad-for-updates.vercel.app/",
+        "images": [
+            "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
     {
         "id": "uiux-design-kit",
         "type": "service",
@@ -59,4 +101,6 @@
             "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
         ]
     }
+   
+    
 ]

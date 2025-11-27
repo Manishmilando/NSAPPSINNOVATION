@@ -57,14 +57,18 @@ const BigLottie = ({ jsonUrl }) => {
   }
 
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <motion.div
+      className="w-full h-full flex items-center justify-center"
+      animate={{ y: [0, -15, 0] }}
+      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+    >
       <Lottie
         animationData={animationData}
         loop
         autoplay
-        className="w-[360px] h-[360px] md:w-[420px] md:h-[420px]"
+        className="w-[550px] h-[550px] md:w-[650px] md:h-[650px] -mt-16 drop-shadow-2xl"
       />
-    </div>
+    </motion.div>
   );
 };
 
@@ -76,7 +80,7 @@ const AILottie = () => <BigLottie jsonUrl="/simpleaipulse.json" />;
 const AboutUsSection = () => {
   const [activeTab, setActiveTab] = useState('who-we-are');
   const [activeSection, setActiveSection] = useState('web-development');
-  
+
   // Refs for scroll animations
   const whoWeAreRef = useRef(null);
   const isWhoWeAreInView = useInView(whoWeAreRef, { once: true, amount: 0.3 });
@@ -123,7 +127,7 @@ const AboutUsSection = () => {
     <section className="relative bg-gray-50 py-20 px-4 z-[10]">
       <div className="max-w-6xl mx-auto">
         {/* Tab Navigation with Animated Underlines */}
-        <motion.div 
+        <motion.div
           className="text-left mb-16"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -135,9 +139,8 @@ const AboutUsSection = () => {
               onClick={() => setActiveTab('who-we-are')}
               className="relative group"
             >
-              <h3 className={`text-xs font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${
-                activeTab === 'who-we-are' ? 'text-gray-900' : 'text-gray-400'
-              } group-hover:text-gray-900`}>
+              <h3 className={`text-xs font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${activeTab === 'who-we-are' ? 'text-gray-900' : 'text-gray-400'
+                } group-hover:text-gray-900`}>
                 WHO WE ARE
               </h3>
               <motion.div
@@ -169,9 +172,8 @@ const AboutUsSection = () => {
               onClick={() => setActiveTab('what-we-do')}
               className="relative group"
             >
-              <h3 className={`text-xs font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${
-                activeTab === 'what-we-do' ? 'text-gray-900' : 'text-gray-400'
-              } group-hover:text-gray-900`}>
+              <h3 className={`text-xs font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${activeTab === 'what-we-do' ? 'text-gray-900' : 'text-gray-400'
+                } group-hover:text-gray-900`}>
                 WHAT WE DO
               </h3>
               <motion.div
@@ -312,9 +314,8 @@ const AboutUsSection = () => {
                   {sections.map((section, index) => (
                     <motion.div
                       key={section.id}
-                      className={`font-normal text-base cursor-pointer transition-colors duration-300 ${
-                        activeSection === section.id ? 'text-indigo-600' : 'text-gray-400 hover:text-indigo-600'
-                      }`}
+                      className={`font-normal text-base cursor-pointer transition-colors duration-300 ${activeSection === section.id ? 'text-indigo-600' : 'text-gray-400 hover:text-indigo-600'
+                        }`}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1, duration: 0.4 }}
@@ -328,7 +329,7 @@ const AboutUsSection = () => {
 
               {/* Right visual area - FIXED HEIGHT */}
               <div className="relative h-[500px]">
-                <motion.div 
+                <motion.div
                   className=""
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -356,7 +357,7 @@ const AboutUsSection = () => {
           )}
         </AnimatePresence>
       </div>
-          {/* <div className="absolute left-0 bottom-0 top-8/9 w-full z-0">
+      {/* <div className="absolute left-0 bottom-0 top-8/9 w-full z-0">
         <CurveSVGManipulation />
       </div> */}
     </section>
