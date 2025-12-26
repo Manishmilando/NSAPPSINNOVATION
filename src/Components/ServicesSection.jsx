@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Smartphone, Laptop, Palette, Glasses } from 'lucide-react';
+import { Smartphone, Laptop, Palette, Glasses, ChevronLeft, ChevronRight } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import CurveSVGManipulation from '../Components/Svgmanupulation';
@@ -45,7 +45,7 @@ const ServiceCard = ({ icon: Icon, title, description, index, clipStyle }) => {
 
 
   return (
-    <div ref={cardRef} className="relative mt-10">
+    <div ref={cardRef} className="relative mt-10 flex-shrink-0 snap-center">
       {/* Outer cutout layer */}
       <div className="flex justify-center bg-black/5" style={clipStyle}>
         {/* Inner cutout layer */}
@@ -132,13 +132,27 @@ const ServicesSection = () => {
     clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)'
   };
 
+  const scrollContainerRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const { current } = scrollContainerRef;
+      const scrollAmount = 300; // Approx card width
+      if (direction === 'left') {
+        current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+  };
+
 
   return (
     <>
       <section className="relative w-full min-h-screen bg-white text-black py-8 overflow-hidden" id='service'>
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header + SVG wrapper */}
-          <div className="relative ">
+          <div className="relative px-4 md:px-0">
             {/* Text block */}
             <div className="relative z-10">
               <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-gray-900">
@@ -156,18 +170,42 @@ const ServicesSection = () => {
           </div>
 
 
-          {/* Services Grid */}
-          <div className="max-w-7xl mx-auto  flex justify-center items-center flex-wrap gap-10 relative z-10 mt-20">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                index={index}
-                clipStyle={clipPathStyle}
-              />
-            ))}
+          {/* Services Grid Wrapper with Arrows */}
+          <div className="relative max-w-7xl mx-auto mt-16 md:mt-20 z-10">
+            {/* Left Arrow (Mobile Only) */}
+            <button
+              onClick={() => scroll('left')}
+              className="md:hidden absolute left-2 top-[40%] -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-100 text-gray-800 flex items-center justify-center hover:bg-gray-50 transition-colors"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            {/* Right Arrow (Mobile Only) */}
+            <button
+              onClick={() => scroll('right')}
+              className="md:hidden absolute right-2 top-[40%] -translate-y-1/2 z-20 w-12 h-12 bg-gray-900 rounded-full shadow-lg border border-gray-900 text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            {/* Scrollable Container */}
+            <div
+              ref={scrollContainerRef}
+              className="flex md:flex-wrap items-center overflow-x-auto md:overflow-visible gap-6 md:gap-10 px-4 md:px-0 pb-12 md:pb-0 snap-x snap-mandatory md:snap-none justify-start md:justify-center scrollbar-hide"
+            >
+              {services.map((service, index) => (
+                <ServiceCard
+                  key={index}
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                  index={index}
+                  clipStyle={clipPathStyle}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

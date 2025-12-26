@@ -37,7 +37,7 @@ const ContactUs = () => {
   return (
     <div
       className="relative w-full min-h-screen bg-white flex flex-col font-sans"
-      id="contact-section"
+      id="get-in-touch"
     >
       {/* --- Top part white color --- */}
       <div className="w-full h-1/2 flex-grow relative z-10 px-6 md:px-8 lg:px-16 pt-12 md:pt-20 lg:pt-32 pb-32 md:pb-40 lg:pb-48">

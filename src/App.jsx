@@ -68,11 +68,10 @@ function App() {
                   <ServicesSection />
                   <AchievementSlider />
                   <ProductSection />
-
-                  <Team />
-                  <GetInTouchSection />
-                  <ContactUs />
                   <TestimonialCarousel />
+                  <GetInTouchSection />
+                  <Team />
+                  <ContactUs />
                   <Footer />
                 </>
               }

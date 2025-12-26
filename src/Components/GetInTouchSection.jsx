@@ -143,11 +143,11 @@ const GetInTouchSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[120vh] bg-[#ffffff] overflow-hidden py-20 "
-      id="get-in-touch"
+      className="relative min-h-[100vh] bg-[#ffffff] overflow-hidden py-10 md:py-20 "
+      
     >
       {/* Scrolling Marquee Text Section */}
-      <div className="relative py-6 bg-black -rotate-2 scale-105 z-20 mb-20 shadow-2xl border-y-4 border-white">
+      <div className="relative py-4 md:py-6 bg-black -rotate-2 scale-105 z-20 mb-10 md:mb-20 shadow-2xl border-y-2 md:border-y-4 border-white">
         <div ref={marqueeRef} className="relative whitespace-nowrap will-change-transform">
           <div className="marquee-content inline-flex items-center">
             {[...Array(3)].map((_, i) => (
@@ -166,10 +166,10 @@ const GetInTouchSection = () => {
         {/* Image Section with Chat Bubbles */}
         <div
           ref={imageContainerRef}
-          className="relative flex items-center justify-center min-h-[800px]"
+          className="relative flex items-center justify-center min-h-0 md:min-h-[800px]"
           style={{ transform: 'translateZ(0)' }}
         >
-          <div className="relative w-full flex items-center justify-center">
+          <div className="relative w-full flex flex-col md:block items-center justify-center">
 
             {/* Center Image - Full Width with Proper Aspect Ratio */}
             <img
@@ -182,7 +182,7 @@ const GetInTouchSection = () => {
             />
 
             {/* Left Side - Text Bubbles - Positioned to avoid faces */}
-            <div className="absolute left-2 md:left-4 lg:left-8 xl:left-16 top-[8%] space-y-4 max-w-[200px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-sm hidden md:block z-10">
+            <div className="relative md:absolute left-auto top-auto md:left-4 lg:left-8 xl:left-16 md:top-[8%] space-y-4 w-full md:w-auto px-4 md:px-0 max-w-md md:max-w-[280px] lg:max-w-sm z-10 flex flex-col items-start">
               {/* Comment Indicator */}
               <div
                 ref={el => chatBubblesRef.current[0] = el}
@@ -197,7 +197,7 @@ const GetInTouchSection = () => {
               {/* Text Bubble */}
               <div
                 ref={el => chatBubblesRef.current[2] = el}
-                className="bg-white absolute text-gray-900 p-4 md:p-2 top-0  rounded-2xl shadow-xl border border-gray-100"
+                className="bg-white relative md:absolute text-gray-900 p-4 md:p-2 top-0  rounded-2xl shadow-xl border border-gray-100"
                 style={{ willChange: 'transform' }}
               >
                 <p className="text-sm sm:text-base text-gray-500 leading-relaxed px-2 whitespace-nowrap">
@@ -208,7 +208,7 @@ const GetInTouchSection = () => {
               {/* Subtext */}
               <div
                 ref={el => chatBubblesRef.current[3] = el}
-                className="text-gray-500 text-xs md:text-sm px-2 pt-80"
+                className="text-gray-500 text-xs md:text-sm px-2 pt-4 md:pt-80"
                 style={{ willChange: 'transform' }}
               >
                 Let's create something amazing together!
@@ -228,10 +228,11 @@ const GetInTouchSection = () => {
                 </button>
               </div>
 
-              {/* Team Badge */}
+
+              {/* Team Badge - Left Side (Desktop Only) */}
               <div
                 ref={el => chatBubblesRef.current[5] = el}
-                className="bg-gray-600 text-white px-5 py-2 rounded-full text-xs md:text-sm font-medium shadow-lg w-fit flex items-center gap-2"
+                className="hidden md:flex bg-gray-600 text-white px-5 py-2 rounded-full text-xs md:text-sm font-medium shadow-lg w-fit items-center gap-2"
                 style={{ willChange: 'transform' }}
               >
                 <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
@@ -240,7 +241,7 @@ const GetInTouchSection = () => {
             </div>
 
             {/* Right Side - Text Bubbles - Positioned to avoid faces */}
-            <div className="absolute right-2 md:right-4 lg:right-8 xl:right-16 top-[80%] space-y-4 max-w-[200px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-md hidden md:block z-10">
+            <div className="relative md:absolute right-auto top-auto md:right-4 lg:right-8 xl:right-16 md:top-[80%] space-y-4 w-full md:w-auto px-4 md:px-0 max-w-md md:max-w-[280px] lg:max-w-md z-10 flex flex-col items-end mt-8 md:mt-0">
               {/* Developer Badge */}
               <div
                 ref={el => chatBubblesRef.current[6] = el}
@@ -249,6 +250,17 @@ const GetInTouchSection = () => {
               >
                 <div className="w-2 h-2 bg-purple-400 rounded-full "></div>
                 Full Stack Developer
+              </div>
+
+              {/* Team Badge */}
+              {/* Team Badge - Mobile Only (Right Side) */}
+              <div
+                ref={el => chatBubblesRef.current[5] = el}
+                className="flex md:hidden bg-gray-600 text-white px-5 py-2 rounded-full text-xs md:text-sm font-medium shadow-lg w-fit ml-auto items-center gap-2"
+                style={{ willChange: 'transform' }}
+              >
+                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                NS Apps Team
               </div>
 
               {/* Why NS Apps Team? Section */}
@@ -286,7 +298,7 @@ const GetInTouchSection = () => {
               </div>
             </div>
           </div>
-        </div> 
+        </div>
       </div>
     </section>
   );

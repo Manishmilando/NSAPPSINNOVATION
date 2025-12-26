@@ -260,8 +260,8 @@ const Hero = () => {
                           member.id === 1
                             ? "linear-gradient(to bottom right, #c084fc, #ec4899)"
                             : member.id === 2
-                            ? "linear-gradient(to bottom right, #a78bfa, #f472b6)"
-                            : "linear-gradient(to bottom right, #8b5cf6, #ec4899)";
+                              ? "linear-gradient(to bottom right, #a78bfa, #f472b6)"
+                              : "linear-gradient(to bottom right, #8b5cf6, #ec4899)";
                       }}
                     />
                   </motion.div>
@@ -349,7 +349,7 @@ const Hero = () => {
           >
             <PressureText
               text="INNOVATIONS"
-              className="text-6xl md:text-[6.5rem]"
+              className="text-[2.6rem] xs:text-[2.2rem] md:text-[6.5rem] tracking-normal"
             />
           </motion.div>
 

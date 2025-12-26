@@ -230,16 +230,15 @@ const TopNavbar = () => {
         <img
           src="/texture.png"
           alt="NS Apps Innovations"
-          className="h-8 md:h-14 w-auto drop-shadow-lg cursor-pointer"
+          className="h-12 md:h-14 w-auto drop-shadow-lg cursor-pointer"
           onClick={() => scrollToSection("hero-section")}
         />
       </motion.div>
 
       {/* 2. Center Navbar */}
       <motion.div
-        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-[500] transition-all duration-300 ${
-          isMobileMenuOpen ? "w-[90%] md:w-auto" : "w-auto"
-        }`}
+        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-[500] transition-all duration-300 ${isMobileMenuOpen ? "w-[90%] md:w-auto block" : "w-auto hidden md:block"
+          }`}
         animate={{
           y: isNavbarVisible ? 0 : -120,
           opacity: isNavbarVisible ? 1 : 0,
@@ -253,9 +252,8 @@ const TopNavbar = () => {
 
           {/* Inner layer - Only visible if menu is open or on desktop */}
           <div
-            className={`absolute inset-[6px] bg-white/50 rounded-[1.7rem] shadow-[0_4px_16px_rgba(0,0,0,0.08)] ${
-              !isMobileMenuOpen ? "hidden lg:block" : ""
-            }`}
+            className={`absolute inset-[6px] bg-white/50 rounded-[1.7rem] shadow-[0_4px_16px_rgba(0,0,0,0.08)] ${!isMobileMenuOpen ? "hidden lg:block" : ""
+              }`}
           ></div>
 
           {/* Navbar content */}
@@ -263,27 +261,17 @@ const TopNavbar = () => {
             {/* Mobile Toggle & Active Tab (When collapsed) */}
             <div className="flex items-center justify-between w-full md:w-auto md:hidden">
               {!isMobileMenuOpen && (
-                <div className="flex items-center px-4 py-2 space-x-2">
-                  <div className="p-1.5 bg-white/40 rounded-full">
-                    {navItems.find((item) => item.id === activeTab)?.icon}
-                  </div>
-                  <span className="text-sm font-semibold text-gray-800">
-                    {navItems.find((item) => item.id === activeTab)?.name ||
-                      "Menu"}
-                  </span>
-                </div>
+                <div className="hidden"></div>
               )}
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`p-2 rounded-full transition-colors ${
-                  isMobileMenuOpen ? "ml-auto" : ""
-                } hover:bg-white/30`}
+                className={`p-2 rounded-full transition-colors ${isMobileMenuOpen ? "ml-auto" : "hidden"
+                  } hover:bg-white/30`}
               >
                 <div
-                  className={`w-6 h-6 flex flex-col justify-center gap-[5px] transition-all duration-300 ${
-                    isMobileMenuOpen ? "rotate-90" : ""
-                  }`}
+                  className={`w-6 h-6 flex flex-col justify-center gap-[5px] transition-all duration-300 ${isMobileMenuOpen ? "rotate-90" : ""
+                    }`}
                 >
                   {isMobileMenuOpen ? (
                     <svg
@@ -320,28 +308,25 @@ const TopNavbar = () => {
 
             {/* Nav Items Container */}
             <div
-              className={`${
-                isMobileMenuOpen
-                  ? "flex flex-col w-full mt-2 space-y-2 opacity-100 max-h-[500px]"
-                  : "hidden opacity-0 max-h-0"
-              } md:flex md:flex-row md:items-center md:space-x-4 md:mt-0 md:opacity-100 md:max-h-none md:w-auto overflow-hidden transition-all duration-500 ease-in-out`}
+              className={`${isMobileMenuOpen
+                ? "flex flex-col w-full mt-2 space-y-2 opacity-100 max-h-[500px]"
+                : "hidden opacity-0 max-h-0"
+                } md:flex md:flex-row md:items-center md:space-x-4 md:mt-0 md:opacity-100 md:max-h-none md:w-auto overflow-hidden transition-all duration-500 ease-in-out`}
             >
               {navItems.map((item, idx) => (
                 <button
                   key={idx}
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative flex md:flex-col items-center justify-start md:justify-center px-4 md:px-2.5 py-3 md:py-1.5 w-full md:w-auto md:min-w-[55px] rounded-xl md:rounded-none hover:bg-white/40 md:hover:bg-transparent transition-all duration-300 ease-out group ${
-                    activeTab === item.id
-                      ? "bg-white/60 md:bg-transparent text-gray-800"
-                      : "text-gray-500 hover:text-gray-700"
-                  }`}
+                  className={`relative flex md:flex-col items-center justify-start md:justify-center px-4 md:px-2.5 py-3 md:py-1.5 w-full md:w-auto md:min-w-[55px] rounded-xl md:rounded-none hover:bg-white/40 md:hover:bg-transparent transition-all duration-300 ease-out group ${activeTab === item.id
+                    ? "bg-white/60 md:bg-transparent text-gray-800"
+                    : "text-gray-500 hover:text-gray-700"
+                    }`}
                 >
                   <div
-                    className={`transition-all duration-300 mr-3 md:mr-0 ${
-                      activeTab === item.id
-                        ? "scale-105 drop-shadow-sm"
-                        : "group-hover:scale-105 group-hover:drop-shadow-sm"
-                    }`}
+                    className={`transition-all duration-300 mr-3 md:mr-0 ${activeTab === item.id
+                      ? "scale-105 drop-shadow-sm"
+                      : "group-hover:scale-105 group-hover:drop-shadow-sm"
+                      }`}
                   >
                     {React.cloneElement(item.icon, {
                       strokeWidth: activeTab === item.id ? 2 : 1.5,
@@ -349,11 +334,10 @@ const TopNavbar = () => {
                     })}
                   </div>
                   <span
-                    className={`text-sm md:text-[10px] font-medium mt-0 md:mt-0.5 transition-all duration-300 ${
-                      activeTab === item.id
-                        ? "opacity-100 font-semibold"
-                        : "opacity-60 group-hover:opacity-90 group-hover:font-medium"
-                    }`}
+                    className={`text-sm md:text-[10px] font-medium mt-0 md:mt-0.5 transition-all duration-300 ${activeTab === item.id
+                      ? "opacity-100 font-semibold"
+                      : "opacity-60 group-hover:opacity-90 group-hover:font-medium"
+                      }`}
                   >
                     {item.name}
                   </span>

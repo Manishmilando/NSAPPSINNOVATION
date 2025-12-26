@@ -272,7 +272,7 @@ const AboutUsSection = () => {
               className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start"
             >
               {/* Left Content - Responsive Height */}
-              <motion.div className="space-y-6 sm:space-y-8 min-h-[400px] sm:min-h-[450px] md:min-h-[500px] flex flex-col">
+              <motion.div className="space-y-6 sm:space-y-8 min-h-0 sm:min-h-[450px] md:min-h-[500px] flex flex-col">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeSection}
