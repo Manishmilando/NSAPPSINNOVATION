@@ -21,6 +21,7 @@ import ProductDetail from "./Components/ProductDetail";
 import ServiceDetail from "./Components/ServiceDetail";
 import CursorDot from "./Components/Cursor";
 import AchievementSlider from "./Components/AchievementSlider";
+import Gallery from "./Components/Gallery";
 // import VideoSection from "./Components/Videosection";
 
 // Scroll to top on route change
@@ -80,6 +81,7 @@ function App() {
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/service/:id" element={<ServiceDetail />} />
             <Route path="/expanded-about" element={<ExpandedAboutUs />} />
+            <Route path="/gallery" element={<Gallery />} />
 
           </Routes>
         </>

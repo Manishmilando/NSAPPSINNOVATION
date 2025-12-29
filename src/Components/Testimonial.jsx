@@ -5,50 +5,53 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import "swiper/css";
 import "swiper/css/pagination";
 
+
 const testimonials = [
   {
     id: 1,
     name: "Sri Pranav Kumar, IAS",
-    role: "Secretary",
-    company: "Home Dept. Govt. of Bihar",
+    role: "Secretary, Dept. of Home & Dept. Art & Culture, Govt. of Bihar",
+    company: "(Former District Magistrate, Bhagalpur)",
     quote:
-      "NS Apps Innovations LLP delivered high-quality mobile applications such as the Shravani Mela App and Samaksh App, benefiting thousands of users. The Samaksh App significantly improved school monitoring, increasing school opening punctuality to 96% within one year, demonstrating strong efficiency and measurable positive outcomes.",
-    image: "/Pranav.png",
+      "The applications developed by NS Apps Innovations LLP, including the Shravani Mela App and Samaksh App, were found to be effective in addressing their intended objectives. The Shravani Mela App facilitated convenience for pilgrims, while the Samaksh App contributed to improved school monitoring, resulting in a measurable increase in school opening punctuality to 96% within one year.",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/biharfilm%2Fhome_secy.jpeg?alt=media&token=2f9b010e-0fed-4627-949d-a4779308a995",
     rating: 5,
   },
   {
     id: 2,
-    name: "Sri Vaibhav Srivastava, IAS",
-    role: "District Magistrate",
-    company: "Saran",
+    name: "Sri Shekhar Anand, IAS",
+    role: "DM & Collector, Shekhpura",
+    company: "(Former DDC Rohtas)",
     quote:
-      "NS Apps Innovations LLP showcased exceptional technical expertise by presenting immersive Virtual Reality–based 3D video content during Bihar Diwas 2025. Their innovative approach and professional execution significantly enhanced public engagement and demonstrated strong commitment to quality digital communication.",
-    image: "/vaibhav.png",
+      "Digital solutions developed under the leadership of Nishant Shekhar, such as the ASPIRE App and Kishanganj Hariyali App, demonstrated practical utility in administrative and field-level operations. The applications supported attendance monitoring, carbon footprint assessment, and environmentally focused initiatives, delivering positive and efficient outcomes.",
+    image: "https://bsidc.in/images/Shekhar-Anand.jpg",
     rating: 5,
   },
   {
     id: 3,
-    name: "Sri Shekhar Anand, IAS",
-    role: "District Magistrate",
-    company: "Sheikhpura",
+    name: "Sri Vaibhav Srivastava, IAS",
+    role: "DM & Collector, Saran",
+    company: "(Former Director, IPRD, Govt. of Bihar)",
     quote:
-      "Under the leadership of Nishant Shekhar, NS Apps Innovations developed impactful solutions like the ASPIRE App and Kishanganj Hariyali App. These applications improved attendance tracking, enabled carbon footprint assessment, and delivered efficient, user-friendly digital governance tools with measurable positive results.",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
+      "During Bihar Diwas 2025, Virtual Reality–based 3D video content was presented by NS Apps Innovations LLP using modern digital techniques. The work reflected effective use of immersive technology for public communication and demonstrated technical competence in content creation and presentation.",
+    image: "/vaibhav sir.jpeg",
     rating: 5,
   },
   {
     id: 4,
     name: "Sri Deepak Kumar Mishra, IAS",
-    role: "Muncipal Commissioner",
-    company: "Bihar Sharif",
+    role: "Municipal Commissioner",
+    company: "Bihar Sharif (Nalanda)",
     quote:
-      "NS Apps Innovations LLP, led by Nishant Shekhar, delivered impactful digital solutions including the Asia Women's Hockey Championship 2024 App and Khelo India Youth Games modules. Their platforms enhanced live engagement, grievance redressal, and accommodation coordination, significantly improving the overall event experience. Their professionalism and innovation greatly supported successful district-level sporting events.",
+      "Digital platforms developed by NS Apps Innovations LLP were utilised to support major sporting events in Nalanda district, including the Asia Women’s Hockey Championship 2024 and Khelo India Youth Games 2025. The applications assisted in live information dissemination, grievance handling, and accommodation coordination, contributing to smooth event management.",
     image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+      "https://media.licdn.com/dms/image/v2/D4D03AQECnJ4qGES5ng/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721880912111?e=1767830400&v=beta&t=clY3uxx2cJ1DmNDmy-a5uBeKL5I4ZdFhOqRBl-Nh0a0",
     rating: 5,
   },
 ];
+
+
 
 const TestimonialCard = ({ t }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
@@ -60,7 +63,7 @@ const TestimonialCard = ({ t }) => {
   return (
     <div className="group h-full bg-white rounded-2xl p-8 md:p-10 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col relative">
       <div className="absolute top-6 left-6 text-gray-100 group-hover:text-blue-50 transition-colors duration-300">
-        <Quote className="w-10 h-10 md:w-12 md:h-12 fill-current opacity-50" />
+        <Quote className="w-10 h-10 md:w-12 md:h-12 fill-current opacity-90" />
       </div>
 
       <div className="flex-grow mb-8 pt-6 relative z-10">
@@ -79,7 +82,7 @@ const TestimonialCard = ({ t }) => {
       </div>
 
       <div className="absolute bottom-24 right-6 text-gray-100 group-hover:text-blue-50 transition-colors duration-300 rotate-180">
-        <Quote className="w-10 h-10 md:w-12 md:h-12 fill-current opacity-50" />
+        <Quote className="w-10 h-10 md:w-12 md:h-12 fill-current opacity-90" />
       </div>
 
       <div className="flex items-center gap-4 pt-6 border-t border-gray-100 mt-auto relative z-10">
@@ -121,7 +124,7 @@ const TestimonialCarousel = () => {
               Testimonials
             </h2>
             <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-              Trusted by industry leaders and government departments for delivering impactful digital solutions.
+              Summarised from official appreciation and acknowledgements by government authorities.
             </p>
           </div>
 

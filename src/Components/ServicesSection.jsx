@@ -149,7 +149,7 @@ const ServicesSection = () => {
 
   return (
     <>
-      <section className="relative w-full min-h-screen bg-white text-black py-8 overflow-hidden" id='service'>
+      <section className="relative w-full min-h-screen bg-white text-black py-16 overflow-hidden" id='service'>
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header + SVG wrapper */}
           <div className="relative px-4 md:px-0">
@@ -193,7 +193,7 @@ const ServicesSection = () => {
             {/* Scrollable Container */}
             <div
               ref={scrollContainerRef}
-              className="flex md:flex-wrap items-center overflow-x-auto md:overflow-visible gap-6 md:gap-10 px-4 md:px-0 pb-12 md:pb-0 snap-x snap-mandatory md:snap-none justify-start md:justify-center scrollbar-hide"
+              className="flex md:flex-wrap items-center overflow-x-auto md:overflow-visible gap-6 md:gap-10 px-4 md:px-0 pb-12 md:pb-0 snap-x snap-mandatory md:snap-none justify-start md:justify-center scrollbar-hide pt-20"
             >
               {services.map((service, index) => (
                 <ServiceCard

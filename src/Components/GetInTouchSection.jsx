@@ -144,7 +144,7 @@ const GetInTouchSection = () => {
     <section
       ref={containerRef}
       className="relative min-h-[100vh] bg-[#ffffff] overflow-hidden py-10 md:py-20 "
-      
+
     >
       {/* Scrolling Marquee Text Section */}
       <div className="relative py-4 md:py-6 bg-black -rotate-2 scale-105 z-20 mb-10 md:mb-20 shadow-2xl border-y-2 md:border-y-4 border-white">
@@ -177,7 +177,7 @@ const GetInTouchSection = () => {
               src={completeteam}
               alt="NS Apps Innovations Team"
               loading="lazy"
-              className="relative w-full max-w-[1400px] h-auto rounded-3xl object-contain"
+              className="relative w-full max-w-[1600px] h-auto rounded-3xl object-contain mx-auto"
               style={{ willChange: 'transform', transform: 'translateZ(0)', zIndex: 1 }}
             />
 

@@ -2,14 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const achievements = [
-    "100+ Projects Completed",
-    "Global Client Reach",
-    "Award Winning Design",
-    "99% Client Satisfaction",
-    "Innovation First Approach",
-    "Digital Transformation Leaders",
-    "Sustainable Tech Solutions",
-    "User-Centric Methodology"
+  "28+ Government & Public Sector Digital Projects",
+  "Used by District Administrations Across Bihar",
+  "Platforms Supporting 2+ Lakh Monthly Users",
+  "State-Level Event & Ticketing Systems Deployed",
+  "Attendance & Monitoring Systems Across Districts",
+  "Official Portals for Startups, Culture & Sports",
+  "VR & Immersive Media for Public Outreach",
+  "Designed for Scale, Security & Governance"
 ];
 
 const AchievementSlider = () => {
