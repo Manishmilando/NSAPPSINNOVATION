@@ -149,7 +149,7 @@ const ServicesSection = () => {
 
   return (
     <>
-      <section className="relative w-full min-h-screen bg-white text-black py-16 overflow-hidden" id='service'>
+      <section className="relative w-full h-full bg-white text-black py-16 overflow-hidden" id='service'>
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header + SVG wrapper */}
           <div className="relative px-4 md:px-0">
