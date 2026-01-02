@@ -29,7 +29,8 @@
                 "name": "Pratush Sinha",
                 "role": "Backend dev",
                 "image": "/Pratush.jpeg"
-            }, {
+            },
+            {
                 "name": "Abhishek Anand",
                 "role": "React Developer",
                 "image": "/Abhishek.jpeg"
@@ -57,7 +58,6 @@
         ],
         "images": [
             "/Projects/StartupBihar3.png",
-            
             "/Projects/StartupBihar2.png",
             "/Projects/StartupBihar1.png",
             "/Projects/StartupBihar4.png",
@@ -65,7 +65,6 @@
             "/Projects/StartupBihar6.png",
             "/Projects/StartupBihar7.png"
         ],
-
         "link": "https://startupbihar.in/"
     },
     {
@@ -103,11 +102,10 @@
             "/Projects/BudhaSamyak5.png",
             "/Projects/BudhaSamyak6.png",
             "/Projects/BudhaSamyak7.png"
-        ]
-        ,
+        ],
         "link": "https://buddhasamyak.bihar.gov.in/"
     },
-     {
+    {
         "id": "asia-hockey",
         "type": "product",
         "title": "Asia Hockey Men’s & Women’s Championship",
@@ -139,7 +137,7 @@
             "/Projects/Hockey.png",
             "/Projects/Hockey.png",
             "/Projects/Hockey.png",
-            "/Projects/Hockey.png", 
+            "/Projects/Hockey.png",
             "/Projects/Hockey.png",
             "/Projects/Hockey.png",
             "/Projects/Hockey.png"
@@ -185,13 +183,10 @@
             "/Projects/Bihar State Film Development and Finance Corporation5.png",
             "/Projects/Bihar State Film Development and Finance Corporation6.png",
             "/Projects/Bihar State Film Development and Finance Corporation7.png"
-        ]
-        ,
+        ],
         "link": "https://biharfilm.web.app/"
     },
-  
-   
-      {
+    {
         "id": "bihar-heritage-project",
         "type": "product",
         "title": "Bihar Heritage Project",
@@ -228,5 +223,30 @@
             "/Projects/BiharHeritage7.png"
         ],
         "link": "https://bihar-heritage-project.vercel.app/"
+    },
+    {
+        "id": "begusarai-khelo-india-2025",
+        "type": "product",
+        "title": "Begusarai Khelo India 2025",
+        "category": "Sports & Event Management",
+        "desc": "Official platform for Khelo India Youth Games 2025 Football Tournament in Begusarai.",
+        "fullDescription": "The official digital hub for the Khelo India Youth Games 2025 Football Tournament hosted in Begusarai. The platform provides real-time schedules, match updates, gallery highlights, and venue details for both boys' and girls' tournaments, serving as a comprehensive guide for participants and spectators.",
+        "tags": [
+            "Sports",
+            "Event Management",
+            "Khelo India",
+            "Government"
+        ],
+        "img": "https://begusaraikheloindia.web.app/footballl.png",
+        "client": "District Administration, Begusarai",
+        "date": "2025",
+        "link": "https://begusaraikheloindia.web.app/",
+        "images": [
+            "https://begusaraikheloindia.web.app/logo.png",
+            "https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/BegusaraiKheloIndia%2F495858117_17900196948188266_4256676119995289810_n.jpeg?alt=media&token=eb5bf139-8e46-4606-b531-7a25c3177906",
+            "https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/BegusaraiKheloIndia%2F495351893_17900196966188266_2698109744354800542_n.jpeg?alt=media&token=31dd7861-fb8d-41b2-9c99-b33758788b40",
+            "https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/BegusaraiKheloIndia%2F495220299_17900193414188266_2355272522296014990_n.jpeg?alt=media&token=671f0e9e-0b06-4116-be3b-045cb9313935",
+            "https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/BegusaraiKheloIndia%2FWhatsApp%20Image%202025-05-03%20at%2023.11.17.jpeg?alt=media&token=4e0f47ad-abfa-4923-b01f-d89d2a62eb6e"
+        ]
     }
 ]

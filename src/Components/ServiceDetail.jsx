@@ -105,7 +105,7 @@ const ServiceDetail = () => {
 
     // Bento grid span patterns for variety
     const spanPatterns = [
-      "col-span-1 sm:col-span-2 md:col-span-2 row-span-2", // Large
+      "col-span-1 sm:col-span-2 md:col-span-2 row-span-2 ", // Large
       "col-span-1 sm:col-span-1 md:col-span-1 row-span-1", // Small
       "col-span-1 sm:col-span-1 md:col-span-1 row-span-1", // Small
       "col-span-1 sm:col-span-1 md:col-span-1 row-span-2", // Tall

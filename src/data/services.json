@@ -16,8 +16,10 @@
         "date": "2025",
         "link": "https://litman.web.app/",
         "images": [
-            "/VidhiSakha.png",
-            "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80"
+            "/Projects/VidhiSakha2.png",
+            "/Projects/VidhiSakha3.png",
+            "/Projects/VidhiSakha1.png",
+            "/Projects/VidhiSakha.png"
         ]
     },
     {
@@ -32,13 +34,15 @@
             "Public Service",
             "Tracking"
         ],
-        "img": "/Dakpad.png",
+        "img": "/Projects/JanSamadhan1.png",
         "client": "Dept of Admin Reforms",
         "date": "Ongoing",
         "link": "https://dak-pad-for-updates.vercel.app/",
         "images": [
-            "/DakPad.png",
-            "/DakPad.png"
+            "/Projects/JanSamadhan1.png",
+            "/Projects/JanSamadhan3.png",
+            "/Projects/JanSamadhan2.png",
+            "/Projects/JanSamadhan4.png"
         ]
     },
     {
@@ -79,8 +83,13 @@
         "date": "2024",
         "link": "https://helloudyami.web.app/",
         "images": [
-            "https://images.unsplash.com/photo-1535378437327-b710006f3c47?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
+            "/Projects/HelloUdyami2.png",
+            "/Projects/HelloUdyami3.png",
+            "/Projects/HelloUdyami.jpeg",
+            "/Projects/HelloUdyami4.png",
+            "/Projects/HelloUdyami6.png",
+            "/Projects/HelloUdyami5.png"
+           
         ]
     },
     {
@@ -123,6 +132,56 @@
         "images": [
             "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
             "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80"
+        ]
+    },
+    {
+        "id": "shravani-mela-2025",
+        "type": "service",
+        "title": "Shravani Mela 2025",
+        "category": "Government & Public Service",
+        "desc": "Official app by Bhagalpur District Administration for Shravani Mela 2025.",
+        "fullDescription": "Experience the spiritual journey of Shravani Mela like never before with the official app brought to you by Bhagalpur District Administration. Designed to serve pilgrims, visitors, and devotees heading to the sacred Deoghar, our app offers a seamless, informative, and engaging travel companion from start to finish.",
+        "tags": [
+            "Government",
+            "Public Service",
+            "Pilgrimage",
+            "Travel"
+        ],
+        "img": "/Projects/shravani-mela.webp",
+        "client": "District Administration, Bhagalpur",
+        "date": "2025",
+        "link": "https://play.google.com/store/apps/details?id=com.talentmango.begusaraikheloindia",
+        "images": [
+            "/Projects/shravani-mela.webp",
+            "/Projects/shravani-mela3.webp",
+            "/Projects/shravani-mela2.webp",
+            "/Projects/shravani-mela4.webp"
+            
+        ]
+    },
+    {
+        "id": "hockey-rajgir-2025",
+        "type": "service",
+        "title": "Hockey Rajgir 2025",
+        "category": "Sports & Events",
+        "desc": "Official app for Hero Asia Cup Rajgir 2025 with live updates and schedule.",
+        "fullDescription": "Stay connected with the Hero Asia Cup Rajgir 2025, hosted in Bihar, India. This official tournament app brings you closer to the action with real-time match updates, fixtures, points tables, and exclusive event coverage.",
+        "tags": [
+            "Sports",
+            "Events",
+            "Hockey",
+            "Live Updates"
+        ],
+        "img": "/Projects/hockey-rajgir.png",
+        "client": "Progressix",
+        "date": "2025",
+        "link": "https://play.google.com/store/apps/details?id=com.talentmango.hockeyrajgir",
+        "images": [
+            "/Projects/hockey-rajgir2.webp",
+            "/Projects/hockey-rajgir4.webp",
+            "/Projects/hockey-rajgir3.webp",
+            "/Projects/hockey-rajgir5.webp",
+            "/Projects/hockey-rajgir6.webp"
         ]
     }
 ]
