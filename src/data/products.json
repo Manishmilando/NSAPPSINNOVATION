@@ -16,19 +16,14 @@
         "date": "Ongoing",
         "team": [
             {
-                "name": "Nishant Shekhar",
-                "role": "Founder, NS Apps Innovations",
-                "image": "/Nishant.jpeg"
-            },
-            {
                 "name": "Amit Kumar Verma",
                 "role": "Frontend Developer",
-                "image": "/Amit.jpeg"
+                "image": "/Avatar.jpg"
             },
             {
                 "name": "Pratush Sinha",
                 "role": "Backend dev",
-                "image": "/Pratush.jpeg"
+                "image": "/Avatar.jpg"
             },
             {
                 "name": "Abhishek Anand",
@@ -43,23 +38,23 @@
             {
                 "name": "Yuvika Kumari",
                 "role": "Frontend Developer",
-                "image": "/Yuvika.jpeg"
+                "image": "/Avatar.jpg"
             },
             {
                 "name": "Priyanshu Shankar",
                 "role": "QA Specialist",
-                "image": "/Pratush.jpeg"
+                "image": "/Priyanshu.jpeg"
             },
             {
                 "name": "Abhinav Kumar",
                 "role": "QA Specialist",
-                "image": "/Abhinav.jpeg"
+                "image": "/Abhinab.jpeg"
             }
         ],
         "images": [
-            "/Projects/StartupBihar3.png",
-            "/Projects/StartupBihar2.png",
             "/Projects/StartupBihar1.png",
+            "/Projects/StartupBihar2.png",
+            "/Projects/StartupBihar3.png",
             "/Projects/StartupBihar4.png",
             "/Projects/StartupBihar5.png",
             "/Projects/StartupBihar6.png",
@@ -92,12 +87,18 @@
                 "name": "Manish Kumar",
                 "role": "Frontend Developer",
                 "image": "/Manish.jpeg"
+            },
+            {
+                "name": "Abhishek Anand",
+                "role": "Frontend Developer",
+                "image": "/Abhishek.jpeg"
             }
         ],
         "images": [
-            "/Projects/BudhaSamyak1.png",
-            "/Projects/BudhaSamyak2.png",
             "/Projects/BudhaSamyak3.png",
+            
+            "/Projects/BudhaSamyak2.png",
+            "/Projects/BudhaSamyak1.png",
             "/Projects/BudhaSamyak4.png",
             "/Projects/BudhaSamyak5.png",
             "/Projects/BudhaSamyak6.png",
@@ -130,17 +131,23 @@
             {
                 "name": "Aditya Raj",
                 "role": "Frontend Developer",
-                "image": "/Aditya.jpeg"
+                "image": "/AdityaRaj.jpeg"
+            },
+            {
+                "name": "Pranav Kumar",
+                "role": "Frontend Developer",
+                "image": "/Prnav.jpeg"
             }
         ],
         "images": [
             "/Projects/Hockey.png",
-            "/Projects/Hockey.png",
-            "/Projects/Hockey.png",
-            "/Projects/Hockey.png",
-            "/Projects/Hockey.png",
-            "/Projects/Hockey.png",
-            "/Projects/Hockey.png"
+            
+            "/Projects/Hockey2.png",
+            "/Projects/Hockey1.png",
+            "/Projects/Hockey3.png",
+            "/Projects/Hockey4.png",
+            "/Projects/Hockey5.png"
+          
         ]
     },
     {
@@ -205,7 +212,7 @@
             {
                 "name": "Pranav Kumar",
                 "role": "Frontend Developer",
-                "image": "/Pranav.jpeg"
+                "image": "/Prnav.jpeg"
             },
             {
                 "name": "Abhishek Anand",
@@ -214,9 +221,10 @@
             }
         ],
         "images": [
-            "/Projects/BiharHeritage1.png",
+            
             "/Projects/BiharHeritage2.png",
             "/Projects/BiharHeritage3.png",
+            "/Projects/BiharHeritage1.png",
             "/Projects/BiharHeritage4.png",
             "/Projects/BiharHeritage5.png",
             "/Projects/BiharHeritage6.png",
@@ -242,11 +250,19 @@
         "date": "2025",
         "link": "https://begusaraikheloindia.web.app/",
         "images": [
-            "https://begusaraikheloindia.web.app/logo.png",
-            "https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/BegusaraiKheloIndia%2F495858117_17900196948188266_4256676119995289810_n.jpeg?alt=media&token=eb5bf139-8e46-4606-b531-7a25c3177906",
-            "https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/BegusaraiKheloIndia%2F495351893_17900196966188266_2698109744354800542_n.jpeg?alt=media&token=31dd7861-fb8d-41b2-9c99-b33758788b40",
-            "https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/BegusaraiKheloIndia%2F495220299_17900193414188266_2355272522296014990_n.jpeg?alt=media&token=671f0e9e-0b06-4116-be3b-045cb9313935",
-            "https://firebasestorage.googleapis.com/v0/b/gatishaktibihar.firebasestorage.app/o/BegusaraiKheloIndia%2FWhatsApp%20Image%202025-05-03%20at%2023.11.17.jpeg?alt=media&token=4e0f47ad-abfa-4923-b01f-d89d2a62eb6e"
+             
+             "/Projects/Football2.png",
+             "/Projects/Football3.png",
+             "/Projects/Football1.png"
+             
+           
+        ],
+        "team": [
+            {
+                "name": "Manish Kumar",
+                "role": "Frontend Developer",
+                "image": "/Manish.jpeg"
+            }
         ]
     }
 ]

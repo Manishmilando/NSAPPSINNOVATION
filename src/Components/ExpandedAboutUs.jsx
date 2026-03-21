@@ -17,9 +17,9 @@ const aboutData = [
         text: "We are the tech team behind the Asia Hockey Men's & Women's Championship, Rajgir —\ndelivering live match updates, dynamic schedules, athlete insights,\nand a world-class event website trusted by thousands.",
         highlights: ["Asia Hockey Men's & Women's Championship", "live match updates", "world-class event website"],
         media: [
-            { type: "image", url: "https://placehold.co/600x400/1e3a8a/FFF?text=Hockey+Championship" },
-            { type: "image", url: "https://placehold.co/600x400/1e40af/FFF?text=Live+Updates" },
-            { type: "image", url: "https://placehold.co/600x400/2563eb/FFF?text=Website" },
+            { type: "image", url: "/Projects/Hockey1.png" },
+            { type: "image", url: "/Projects/Hockey2.png" },
+            { type: "image", url: "/Projects/Hockey3.png" },
         ],
     },
     {
@@ -27,9 +27,9 @@ const aboutData = [
         text: "We are the ones behind the Startup Bihar Portal —\nthe digital gateway empowering thousands of founders\nand shaping Bihar's entrepreneurial rise.",
         highlights: ["Startup Bihar Portal", "empowering thousands of founders", "entrepreneurial rise"],
         media: [
-            { type: "image", url: "https://placehold.co/600x400/047857/FFF?text=Startup+Bihar" },
-            { type: "image", url: "https://placehold.co/600x400/059669/FFF?text=Founders" },
-            { type: "image", url: "https://placehold.co/600x400/10b981/FFF?text=Portal" },
+            { type: "image", url: "/Projects/StartupBihar1.png" },
+            { type: "image", url: "/Projects/StartupBihar2.png" },
+            { type: "image", url: "/Projects/StartupBihar3.png" },
         ],
     },
     {
@@ -37,9 +37,9 @@ const aboutData = [
         text: "We engineered the Buddha Samyak Darshan Museum Ticketing System,\nseamlessly handling 2+ lakh visitors every month\nwith unmatched speed, reliability, and scale.",
         highlights: ["Buddha Samyak Darshan Museum", "2+ lakh visitors", "unmatched speed"],
         media: [
-            { type: "image", url: "https://placehold.co/600x400/b45309/FFF?text=Museum+Ticketing" },
-            { type: "image", url: "https://placehold.co/600x400/d97706/FFF?text=Visitor+Scale" },
-            { type: "image", url: "https://placehold.co/600x400/f59e0b/FFF?text=System" },
+            { type: "image", url: "/Projects/BudhaSamyak1.png" },
+            { type: "image", url: "/Projects/BudhaSamyak2.png" },
+            { type: "image", url: "/Projects/BudhaSamyak3.png" },
         ],
     },
     {
@@ -47,9 +47,9 @@ const aboutData = [
         text: "We built the Bihar Film and Bihar Heritage websites —\nwelcoming filmmakers, preserving culture, and showcasing the marvels of the state\nin modern digital form.",
         highlights: ["Bihar Film", "Bihar Heritage", "preserving culture", "modern digital form"],
         media: [
-            { type: "image", url: "https://placehold.co/600x400/7c3aed/FFF?text=Bihar+Film" },
-            { type: "image", url: "https://placehold.co/600x400/8b5cf6/FFF?text=Heritage+Preservation" },
-            { type: "image", url: "https://placehold.co/600x400/a78bfa/FFF?text=Websites" },
+            { type: "image", url: "/Projects/Bihar State Film Development and Finance Corporation2.png" },
+            { type: "image", url: "/Projects/BiharHeritage1.png" },
+            { type: "image", url: "/Projects/BiharHeritage2.png" },
         ],
     },
     {
@@ -57,9 +57,9 @@ const aboutData = [
         text: "We authenticate thousands of MMUY & Bihar Laghu Udyami Yojna beneficiary attendances across all districts —\nensuring secure verification, transparent monitoring,\nand real-time insights statewide.",
         highlights: ["MMUY", "Bihar Laghu Udyami Yojna", "secure verification", "transparent monitoring"],
         media: [
-            { type: "image", url: "https://placehold.co/600x400/be123c/FFF?text=MMUY+Scheme" },
-            { type: "image", url: "https://placehold.co/600x400/e11d48/FFF?text=Beneficiary+Workflow" },
-            { type: "image", url: "https://placehold.co/600x400/f43f5e/FFF?text=Monitoring" },
+            { type: "image", url: "/Projects/MMUYScheme.png" },
+            { type: "image", url: "/Projects/MMUYScheme2.png" },
+            { type: "image", url: "/Projects/HelloUdyami2.png" },
         ],
     },
     {
@@ -67,9 +67,9 @@ const aboutData = [
         text: "Our LITMAN system — Bihar's Litigation Management & Compliance Tracking platform —\nhelps departments manage and monitor court cases with precision,\nensuring no file is forgotten and compliance with court orders never slips.\nIts flagship implementation, the ViSha Portal,\nhas transformed how legal workflows operate across the state.",
         highlights: ["LITMAN system", "Litigation Management", "ViSha Portal", "transformed legal workflows"],
         media: [
-            { type: "image", url: "https://placehold.co/600x400/1e293b/FFF?text=Litigation+Management" },
-            { type: "image", url: "https://placehold.co/600x400/334155/FFF?text=ViSha+Portal" },
-            { type: "image", url: "https://placehold.co/600x400/475569/FFF?text=Legal+Tech" },
+            { type: "image", url: "/Projects/VidhiSakha.png" },
+            { type: "image", url: "/Projects/VidhiSakha2.png" },
+            { type: "image", url: "/Projects/VidhiSakha3.png" },
         ],
     },
     {

@@ -21,6 +21,7 @@
             "/Projects/VidhiSakha1.png",
             "/Projects/VidhiSakha.png"
         ]
+        
     },
     {
         "id": "dak-pad",
@@ -43,6 +44,18 @@
             "/Projects/JanSamadhan3.png",
             "/Projects/JanSamadhan2.png",
             "/Projects/JanSamadhan4.png"
+        ],
+        "team": [
+            {
+                "name": "Abhishek Kumar",
+                "role": "Frontend Developer",
+                "image": "/Abhishek.jpeg"
+            },
+            {
+                "name": "Pranav Kumar",
+                "role": "Frontend Developer",
+                "image": "/Prnav.jpeg"
+            }
         ]
     },
     {
@@ -90,6 +103,18 @@
             "/Projects/HelloUdyami6.png",
             "/Projects/HelloUdyami5.png"
            
+        ],
+        "team": [
+            {
+                "name": "Abhinav Kumar",
+                "role": "Frontend Developer",
+                "image": "/Abhinab.jpeg"
+            },
+            {
+                "name": "Manish Kumar",
+                "role": "Frontend Developer",
+                "image": "/ManishB.jpeg"
+            }
         ]
     },
     {
@@ -109,8 +134,11 @@
         "date": "2024",
         "link": "",
         "images": [
-            "https://images.unsplash.com/photo-1592478411213-61535fdd861d?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=800&q=80"
+            "/Projects/vr-work3.jpeg",
+            "/Projects/vr-work2.jpeg",
+             "/Projects/vr-work1.jpeg",
+            "/Projects/vr-work4.jpeg"
+           
         ]
     },
     {

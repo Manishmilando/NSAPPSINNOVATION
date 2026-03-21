@@ -82,8 +82,8 @@ const ProductDetail = () => {
     product.images && product.images.length >= 3
       ? product.images.slice(0, 3)
       : product.images && product.images.length > 0
-      ? [...product.images, product.img, product.img].slice(0, 3)
-      : [product.img, product.img, product.img];
+        ? [...product.images, product.img, product.img].slice(0, 3)
+        : [product.img, product.img, product.img];
 
   // Marquee content repeated for seamless loop
   const marqueeText =
@@ -143,7 +143,7 @@ const ProductDetail = () => {
                      [transform:rotateZ(6deg)]"
               >
                 <img
-                  className="h-full w-full rounded-xl object-contain"
+                  className="h-full w-full rounded-xl object-cover"
                   src={stackImages[0]}
                   alt={`${product.title} - Card 1`}
                 />
@@ -159,7 +159,7 @@ const ProductDetail = () => {
                      [transform:rotateZ(6deg)]"
               >
                 <img
-                  className="h-full w-full rounded-xl object-contain"
+                  className="h-full w-full rounded-xl object-cover"
                   src={stackImages[1]}
                   alt={`${product.title} - Card 2`}
                 />
@@ -175,7 +175,7 @@ const ProductDetail = () => {
                      [transform:rotateZ(6deg)]"
               >
                 <img
-                  className="h-full w-full rounded-xl object-cntain"
+                  className="h-full w-full rounded-xl object-cover"
                   src={stackImages[2]}
                   alt={`${product.title} - Card 3`}
                 />
@@ -272,17 +272,17 @@ const ProductDetail = () => {
         </div>
       </header>
 
-            {/* --- CREATIVE SEPARATOR: INFINITE MARQUEE --- */}
-            <div className="relative py-10 bg-black -rotate-2 scale-105 z-20 mb-20 shadow-2xl border-y-4 border-white">
-                <div className="marquee-inner flex whitespace-nowrap">
-                    {/* Repeat text enough times to fill width */}
-                    {[...Array(8)].map((_, i) => (
-                        <span key={i} className="text-4xl md:text-6xl font-black text-white px-4 tracking-tighter">
-                            {marqueeText}
-                        </span>
-                    ))}
-                </div>
-            </div>
+      {/* --- CREATIVE SEPARATOR: INFINITE MARQUEE --- */}
+      <div className="relative py-10 bg-black -rotate-2 scale-105 z-20 mb-20 shadow-2xl border-y-4 border-white">
+        <div className="marquee-inner flex whitespace-nowrap">
+          {/* Repeat text enough times to fill width */}
+          {[...Array(8)].map((_, i) => (
+            <span key={i} className="text-4xl md:text-6xl font-black text-white px-4 tracking-tighter">
+              {marqueeText}
+            </span>
+          ))}
+        </div>
+      </div>
 
       {/* --- CONTENT SECTION (Responsive) --- */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pb-20 sm:pb-30 md:pb-40 relative z-10">

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ArrowRight } from "lucide-react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useLocation,
+  Link
 } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Spline";
@@ -22,6 +25,9 @@ import ServiceDetail from "./Components/ServiceDetail";
 import CursorDot from "./Components/Cursor";
 import AchievementSlider from "./Components/AchievementSlider";
 import Gallery from "./Components/Gallery";
+import Leaderboard from "./Components/Leaderboard";
+import LeaderboardDisplay from "./Components/LeaderboardDisplay";
+import EventPopup from "./Components/EventPopup";
 // import VideoSection from "./Components/Videosection";
 
 // Scroll to top on route change
@@ -46,11 +52,18 @@ function ScrollToTop() {
 }
 
 function App() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(() => {
+    return !sessionStorage.getItem("splashShown");
+  });
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+    sessionStorage.setItem("splashShown", "true");
+  };
 
   return (
     <Router>
-      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
+      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
 
       {!showSplash && (
         <>
@@ -62,7 +75,10 @@ function App() {
               path="/"
               element={
                 <>
-                  <Hero />
+                  <div className="relative w-full overflow-hidden">
+                    <EventPopup />
+                    <Hero />
+                  </div>
                   {/* <VideoSection /> */}
                   <CursorDot />
                   <AboutUs />
@@ -82,6 +98,8 @@ function App() {
             <Route path="/service/:id" element={<ServiceDetail />} />
             <Route path="/expanded-about" element={<ExpandedAboutUs />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/bihardiwas" element={<LeaderboardDisplay />} />
+            <Route path="/admin-leaderboard" element={<Leaderboard />} />
 
           </Routes>
         </>
